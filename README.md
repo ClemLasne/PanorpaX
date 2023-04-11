@@ -5,4 +5,4 @@ This repository includes all the scripts and commands used in the analysis for .
 
 Below is a rough guide to the content of each file/folder:
 
-1. [Genome Assembly]() 
+1. [Genome Assembly](https://github.com/ClemLasne/PanorpaX/blob/main/Genome_assembly/genome_assembly_pipeline.md) 
