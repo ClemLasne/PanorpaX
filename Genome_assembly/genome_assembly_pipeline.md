@@ -28,3 +28,8 @@ export PATH=~/minimap2/minimap2:$PATH
 ~/purge_dups/bin/purge_dups -2 -T cutoffs -c PB.base.cov panorpa_cognata.asm.bp.p_ctg.fasta.split.self.paf.gz > dups.bed 2> purge_dups.log
 ~/purge_dups/bin/get_seqs -e dups.bed panorpa_cognata.asm.bp.p_ctg.fasta
 ```
+### Hi-C pro
+
+### Matlock
+
+### YaHS
