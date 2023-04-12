@@ -8,7 +8,7 @@ conda activate pbccs
 ccs --minLength=100 ~/r64046_20230118_140133_C02/m64046_230121_101921.subreads.bam ccs.fastq.gz -j 40
 conda deactivate
 ```
-### Assemble the fastq reads using hifiasm:
+### Assemble the reads using hifiasm:
 
 ```
 module load hifiasm
