@@ -1,4 +1,4 @@
-# 1. FASTQC on raw data
+# 1. FastQC on raw RNA-seq data
 
 After downloading from the sequencing platform, the quality of forward and reverse RNA-seq reads was controlled with [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
