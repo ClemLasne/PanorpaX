@@ -2,7 +2,7 @@
 
 After downloading from the sequencing platform, the quality of forward and reverse RNA-seq reads was controlled with [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 
-**FastQC version 0.11.9
+**FastQC version 0.11.9**
 
 ```ruby
 #load modules
