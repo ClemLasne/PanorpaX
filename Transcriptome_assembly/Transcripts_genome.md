@@ -1,4 +1,3 @@
-```
 Map panorpa transcripts to the panorpa genome:
 ```
 srun blat -minScore=50 /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/paper/final/yahs.out_scaffolds_final_hicpro_multimapping_matlock_0_13_03_2023.fa Panorpa_transcriptome_500bp.cds CDS_vs_Genome.blat
