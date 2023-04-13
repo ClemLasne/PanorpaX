@@ -8,3 +8,4 @@ module load kallisto
 
 srun kallisto index -i indexed_panorpa500_transcriptome.idx Panorpa_transcriptome_500bp.fa.gz
 ```
+File produced: "indexed_panorpa500_transcriptome.idx"
