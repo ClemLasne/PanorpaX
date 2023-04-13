@@ -1,6 +1,6 @@
 # 1. Trinity
 
-Run Trinity to assemble the transcriptome. Run in the directory containing the forward and reverse reads of each RNA-seq sample. 
+Run Trinity to assemble the transcriptome. Run in the directory containing the forward(R1) and reverse(R2) reads of each RNA-seq sample that were previously trimmed with Trimmomatic and had their quality controlled for with FastQC. 
 
 **We used version [trinityrnaseq-v2.11.0](https://github.com/trinityrnaseq/trinityrnaseq/releases)** 
 
