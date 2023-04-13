@@ -2,7 +2,7 @@
 
 Run Trinity in the directory containing the forward and reverse reads of each sample. 
 
-**We used version [v2.11.](https://github.com/trinityrnaseq/trinityrnaseq/releases)** 
+**We used version [v2.11.0](https://github.com/trinityrnaseq/trinityrnaseq/releases)** 
 
 In a slurm script:
 ```ruby
@@ -24,7 +24,9 @@ This pipeline produces a "Tinitiy.fasta" file.
 
 # 2. Evigene
 
-Run Evigene on the Trinity.fasta file.
+Run the **[tr2aacds.pl](http://arthropods.eugenes.org/EvidentialGene/evigene/scripts/prot/) script from Evigene on the Trinity.fasta file.**
+
+**We used version VERSION 2022.01.20** 
 
 ```ruby
 #load modules:
@@ -36,3 +38,5 @@ module load cdhit
 #command:
 perl [PATH]/evigene/scripts/prot/tr2aacds.pl -cdnaseq [PATH]/Trinity.fasta
 ```
+This pipeline produces a "Tinity.okay.cds" file.
+
