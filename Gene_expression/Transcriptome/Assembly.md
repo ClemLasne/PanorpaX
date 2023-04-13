@@ -2,7 +2,7 @@
 
 Run Trinity in the directory containing the forward and reverse reads of each sample. 
 
-**We used version (v2.11.0)[https://github.com/trinityrnaseq/trinityrnaseq/releases]** 
+**We used version [v2.11.](https://github.com/trinityrnaseq/trinityrnaseq/releases)** 
 
 In a slurm script:
 ```ruby
