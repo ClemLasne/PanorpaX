@@ -40,7 +40,7 @@ perl [PATH]/evigene/scripts/prot/tr2aacds.pl -cdnaseq [PATH]/Trinity.fasta
 ```
 This pipeline produces a "Tinity.okay.cds" file.
 
-# 3. Fafilter
+# 3. faFilter
 
 Run [Fafilter](https://bioconda.github.io/recipes/ucsc-fafilter/README.html) on "Tinity.okay.cds" to keep transcripts of 500bp minimum size 
 
