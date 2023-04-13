@@ -1,12 +1,5 @@
-The working directory:
 ```
-cd /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/paper/transcripts
-```
-Copy the transcripts file assembled by Clem:
-```
-cp /nfs/scistore18/vicosgrp/clasne/Panorpa_project/RNAseq_March2022/PAIRED_PE_trimmomatic_files/TRINITY_panorpa_transcriptome_assembly/EVIGENE_Panorpa_tanscriptome_okayset/Panorpa_transcriptome_500bp/TRANSCRIPTOME_TO_USE/Panorpa_transcriptome_500bp.cds .
-```
-Map transcripts to the panorpa genome:
+Map panorpa transcripts to the panorpa genome:
 ```
 srun blat -minScore=50 /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/paper/final/yahs.out_scaffolds_final_hicpro_multimapping_matlock_0_13_03_2023.fa Panorpa_transcriptome_500bp.cds CDS_vs_Genome.blat
 ```
