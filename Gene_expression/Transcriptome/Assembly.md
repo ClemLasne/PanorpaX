@@ -2,7 +2,7 @@
 
 Run Trinity in the directory containing the forward and reverse reads of each sample. 
 
-**We used version [v2.11.0](https://github.com/trinityrnaseq/trinityrnaseq/releases)** 
+**We used version [trinityrnaseq-v2.11.0](https://github.com/trinityrnaseq/trinityrnaseq/releases)** 
 
 In a slurm script:
 ```ruby
@@ -26,8 +26,9 @@ This pipeline produces a "Tinitiy.fasta" file.
 
 Run the **[tr2aacds.pl](http://arthropods.eugenes.org/EvidentialGene/evigene/scripts/prot/) script from Evigene on the Trinity.fasta file.**
 
-**We used version VERSION 2022.01.20** 
+**We used version 2022.01.20** 
 
+Script:
 ```ruby
 #load modules:
 module load java
@@ -44,6 +45,7 @@ This pipeline produces a "Tinity.okay.cds" file.
 
 Run [Fafilter](https://bioconda.github.io/recipes/ucsc-fafilter/README.html) on "Tinity.okay.cds" to keep transcripts of 500bp minimum size 
 
+Script:
 ```ruby
 #load modules
 module load faFilter     
@@ -54,10 +56,12 @@ module load ucscGenomeBrowser/20220420
 faFilter -minSize=500 Trinity.okay.cds Panorpa_transcriptome_500bp.cds
 ```
 
+
 # 4. Stats on Panorpa_transcriptome_500bp.cds
 
 Run [assembly-stats](https://github.com/sanger-pathogens/assembly-stats/blob/master/README.md) on Panorpa_transcriptome_500bp.cds to obtain N50 and other stats on the Panorpa transcriptome assembly.
 
+Script:
 ```ruby
 #load modules
 module load assembly-stats/20170224
@@ -68,14 +72,16 @@ assembly-stats Panorpa_transcriptome_500bp.cds
 
 # 5. BUSCO on Panorpa_transcriptome_500bp.cds
 
-Run BUSCO on 
+**We used BUSCO version is: 5.2.2.**
+
+Script:
 ```ruby
 #load modules
 module load ncbi-blast
 module load hmmer
 module load anaconda3/2021.07
-source /mnt/nfs/clustersw/Debian/buster/anaconda3/2021.07/activate_anaconda3_2021.07.txt
-source activate /nfs/scistore03/vicosgrp/melkrewi/.conda/envs/busco/
+source [PATH]/anaconda3/2021.07/activate_anaconda3_2021.07.txt
+source activate [PATH]/.conda/envs/busco/
 
 #run commands on SLURM's srun
 srun busco -f --in Panorpa_transcriptome_500bp.cds --out BUSCO_Panorpa_transcriptome -l arthropoda_odb10 -m tran -c 40
