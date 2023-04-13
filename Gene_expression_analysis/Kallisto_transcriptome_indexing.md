@@ -1,6 +1,6 @@
 We first rename Panorpa_transcriptome_500bp.cds to Panorpa_transcriptome_500bp.fa and then gunzip it for Kallisto indexing.
 
-**We used Kallisto version**
+**We used Kallisto version 0.46.2**
 
 ```ruby
 #load any module you need here
