@@ -1,5 +1,6 @@
 Map panorpa transcripts to the panorpa genome:
 ```
+module load blat
 srun blat -minScore=50 yahs.out_scaffolds_final_hicpro_multimapping_matlock_0_13_03_2023.fa Panorpa_transcriptome_500bp.cds CDS_vs_Genome.blat
 ```
 Remove redundancy of transcripts:
