@@ -40,3 +40,30 @@ perl [PATH]/evigene/scripts/prot/tr2aacds.pl -cdnaseq [PATH]/Trinity.fasta
 ```
 This pipeline produces a "Tinity.okay.cds" file.
 
+# 3. Fafilter
+
+Run [Fafilter]( on "Tinity.okay.cds" to keep transcripts of 500bp minimum size 
+
+```ruby
+#load modules
+module load faFilter     
+module load bioconda/20210115        
+module load ucscGenomeBrowser/20220420   
+
+#command:
+faFilter -minSize=500 Trinity.okay.cds Panorpa_transcriptome_500bp.cds
+```
+
+# 4. Stats on Panorpa_transcriptome_500bp.cds
+
+Run [assembly-stats](https://github.com/sanger-pathogens/assembly-stats/blob/master/README.md) on Panorpa_transcriptome_500bp.cds
+
+```ruby
+#load modules
+module load assembly-stats/20170224
+
+#run commands on SLURM's srun
+assembly-stats Panorpa_transcriptome_500bp.cds
+```
+
+# 5. BUSCO Panorpa_transcriptome_500bp.cds
