@@ -3,7 +3,7 @@ Blatella germanica genome:
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/762/945/GCA_000762945.2_Bger_2.0/GCA_000762945.2_Bger_2.0_genomic.fna.gz
 gzip -d GCA_000762945.2_Bger_2.0_genomic.fna.gz  
 ```
-# Download female and male reads
+## Download female and male reads
 Reads from paper (https://doi.org/10.1186/s12915-019-0721-x)
 
 - Male reads: SRR1566154, SRR1566155, SRR1566159
