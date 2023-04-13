@@ -66,4 +66,4 @@ module load assembly-stats/20170224
 assembly-stats Panorpa_transcriptome_500bp.cds
 ```
 
-# 5. BUSCO Panorpa_transcriptome_500bp.cds
+# 5. BUSCO on Panorpa_transcriptome_500bp.cds
