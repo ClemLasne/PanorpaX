@@ -87,3 +87,24 @@ source activate [PATH]/.conda/envs/busco/
 srun busco -f --in Panorpa_transcriptome_500bp.cds --out BUSCO_Panorpa_transcriptome -l arthropoda_odb10 -m tran -c 40
 conda deactivate
 ```
+
+BUSCO results are in the newly created "BUSCO_Panorpa_transcriptome" directory. In there, look at file "short_summary.specific.arthropoda_odb10.BUSCO_panorpa_transcriptome_500bp.txt". 
+
+Results:
+```
+        ***** Results: *****
+
+        C:99.0%[S:66.6%,D:32.4%],F:0.3%,M:0.7%,n:1013      
+        1003    Complete BUSCOs (C)                        
+        675     Complete and single-copy BUSCOs (S)        
+        328     Complete and duplicated BUSCOs (D)         
+        3       Fragmented BUSCOs (F)                      
+        7       Missing BUSCOs (M)                         
+        1013    Total BUSCO groups searched                
+
+Dependencies and versions:
+        hmmsearch: 3.1
+        metaeuk: 4.a0f584d
+```
+        
+The BUSCO figure can be created by running the **busco_figure.R** script also present in the newly created directory.
