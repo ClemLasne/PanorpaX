@@ -1,4 +1,3 @@
-```
 Indexing genome and mapping females reads to it to generate the SAM files to be used later on for the coverage analysis:
 ```
 module load bowtie2/2.4.5
