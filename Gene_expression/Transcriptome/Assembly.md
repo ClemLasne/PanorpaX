@@ -42,7 +42,7 @@ This pipeline produces a "Tinity.okay.cds" file.
 
 # 3. Fafilter
 
-Run [Fafilter]( on "Tinity.okay.cds" to keep transcripts of 500bp minimum size 
+Run [Fafilter](https://bioconda.github.io/recipes/ucsc-fafilter/README.html) on "Tinity.okay.cds" to keep transcripts of 500bp minimum size 
 
 ```ruby
 #load modules
@@ -56,7 +56,7 @@ faFilter -minSize=500 Trinity.okay.cds Panorpa_transcriptome_500bp.cds
 
 # 4. Stats on Panorpa_transcriptome_500bp.cds
 
-Run [assembly-stats](https://github.com/sanger-pathogens/assembly-stats/blob/master/README.md) on Panorpa_transcriptome_500bp.cds
+Run [assembly-stats](https://github.com/sanger-pathogens/assembly-stats/blob/master/README.md) on Panorpa_transcriptome_500bp.cds to obtain N50 and other stats on the Panorpa transcriptome assembly.
 
 ```ruby
 #load modules
@@ -67,3 +67,17 @@ assembly-stats Panorpa_transcriptome_500bp.cds
 ```
 
 # 5. BUSCO on Panorpa_transcriptome_500bp.cds
+
+Run BUSCO on 
+```ruby
+#load modules
+module load ncbi-blast
+module load hmmer
+module load anaconda3/2021.07
+source /mnt/nfs/clustersw/Debian/buster/anaconda3/2021.07/activate_anaconda3_2021.07.txt
+source activate /nfs/scistore03/vicosgrp/melkrewi/.conda/envs/busco/
+
+#run commands on SLURM's srun
+srun busco -f --in Panorpa_transcriptome_500bp.cds --out BUSCO_Panorpa_transcriptome -l arthropoda_odb10 -m tran -c 40
+conda deactivate
+```
