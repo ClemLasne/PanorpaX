@@ -1,7 +1,3 @@
-The working directory:
-```
-cd /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/paper/final
-
 ```
 Indexing genome and mapping females reads to it to generate the SAM files to be used later on for the coverage analysis:
 ```
