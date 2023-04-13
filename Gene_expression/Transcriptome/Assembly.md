@@ -1,6 +1,6 @@
 # 1. Trinity
 
-Run Trinity in the directory containing the forward and reverse reads of each sample. 
+Run Trinity to assemble the transcriptome. Run in the directory containing the forward and reverse reads of each RNA-seq sample. 
 
 **We used version [trinityrnaseq-v2.11.0](https://github.com/trinityrnaseq/trinityrnaseq/releases)** 
 
@@ -24,7 +24,7 @@ This pipeline produces a "Tinitiy.fasta" file.
 
 # 2. Evigene
 
-Run the **[tr2aacds.pl](http://arthropods.eugenes.org/EvidentialGene/evigene/scripts/prot/) script from Evigene on the Trinity.fasta file.**
+Run the **[tr2aacds.pl](http://arthropods.eugenes.org/EvidentialGene/evigene/scripts/prot/) script from Evigene on the Trinity.fasta file.** to further remove some duplicated sequences.
 
 **We used version 2022.01.20** 
 
@@ -72,6 +72,8 @@ assembly-stats Panorpa_transcriptome_500bp.cds
 
 # 5. BUSCO on Panorpa_transcriptome_500bp.cds
 
+Run [BUSCO](https://busco.ezlab.org/) to assess the quality of the transcriptome assembly. 
+
 **We used BUSCO version is: 5.2.2.**
 
 Script:
@@ -92,19 +94,15 @@ BUSCO results are in the newly created "BUSCO_Panorpa_transcriptome" directory. 
 
 Results:
 ```
-        ***** Results: *****
+***** Results: *****
 
-        C:99.0%[S:66.6%,D:32.4%],F:0.3%,M:0.7%,n:1013      
-        1003    Complete BUSCOs (C)                        
-        675     Complete and single-copy BUSCOs (S)        
-        328     Complete and duplicated BUSCOs (D)         
-        3       Fragmented BUSCOs (F)                      
-        7       Missing BUSCOs (M)                         
-        1013    Total BUSCO groups searched                
-
-Dependencies and versions:
-        hmmsearch: 3.1
-        metaeuk: 4.a0f584d
+        C:92.7%[S:66.3%,D:26.4%],F:0.8%,M:6.5%,n:1013      
+        939     Complete BUSCOs (C)                        
+        672     Complete and single-copy BUSCOs (S)        
+        267     Complete and duplicated BUSCOs (D)         
+        8       Fragmented BUSCOs (F)                      
+        66      Missing BUSCOs (M)                         
+        1013    Total BUSCO groups searched  
 ```
         
 The BUSCO figure can be created by running the **busco_figure.R** script also present in the newly created directory.
