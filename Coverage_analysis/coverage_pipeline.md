@@ -16,5 +16,4 @@ Clean and merge files:
 ```
 cat Female.soapcov | awk '{print $1, $2, $4}' | perl -pi -e 's/:.*\// /gi' | perl -pi -e 's/Depth://gi' | sort > Female.soapfinal
 cat Male.soapcov | awk '{print $1, $2, $4}' | perl -pi -e 's/:.*\// /gi' | perl -pi -e 's/Depth://gi' | sort > Male.soapfinal
-join Female.soapfinal Male.soapfinal | perl -pi -e 's/^\n.*//gi' > FemaleMale.soapfinal
 ```
