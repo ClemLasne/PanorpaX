@@ -1,0 +1,21 @@
+Use the file "Normalised_merged_GE_25scaffolds_ALLTISSUES.txt" columns (4:21) to calculate and plot the Spearman correlation coeffecients between all 18 RNA-seq samples.
+
+In R:
+```ruby
+# load package
+library(gplots)
+
+# load dataset
+GE_df <- read.table("~/PATH/Normalised_merged_GE_25scaffolds_ALLTISSUES.txt", head=T, sep="")
+head(GE_df)
+str(GE_df)
+
+# subset
+heatmap_df = GE_df[, c(4:21)]
+head(heatmap_df)
+
+# generate plot and save it on computer
+jpeg("Spearman_heatmap_25scaffolds.jpg", width = 10, height = 10, units = "in", res = 400)
+heatmap.2(cor(heatmap_df, method="spearman"), col= colorRampPalette(c("blue", "white", "red", "firebrick4"))(15), scale="none", symm=T, margins = c(10,10), key=T, trace="none")
+dev.off()
+```
