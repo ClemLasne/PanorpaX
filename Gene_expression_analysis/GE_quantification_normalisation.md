@@ -121,10 +121,10 @@ head(sleuth_table)
 ```
 
 Repeat for each dataset and obtain 4 Expression summary files:
-* ** ExpressionSummary_HEAD_samples.txt**
-* ** ExpressionSummary_GONADS_samples.txt**
-* ** ExpressionSummary_CARCASSES_samples.txt**
-* ** ExpressionSummary_ALLTISSUES_samples.txt**
+* **ExpressionSummary_HEAD_samples.txt**
+* **ExpressionSummary_GONADS_samples.txt**
+* **ExpressionSummary_CARCASSES_samples.txt**
+* **ExpressionSummary_ALLTISSUES_samples.txt**
 
 
 # 3. Gene expression normalisation
@@ -168,7 +168,7 @@ Repeat for the other 3 ExpressionSummary.txt files and obtain the 4 following fi
 
 ## 3.1. GE normalisation for Spearman correlation and tissue-specific expression analyses
 
-Use **- NonNormalised_merged_GE_25scaffolds_ALLTISSUES.txt** for these analyses
+Use **NonNormalised_merged_GE_25scaffolds_ALLTISSUES.txt** for these analyses
 
 Used the R package **NormalyzerDE** to apply a quantile normalisation to gene expression across the dataset: normalise the data once across samples, then calculate averages, then apply a second normalisation on these averages, then save the new file.
 
@@ -239,9 +239,9 @@ From the resulting file "Normalised_merged_GE_25scaffolds_ALLTISSUES.txt", we us
 ## 3.2. GE normalisation in each tissue sperately (POF expression and dosage compensation analyses)
 
 Use the previously created datasets:
-**- NonNormalised_merged_GE_25scaffolds_HEADS.txt**
-**- NonNormalised_merged_GE_25scaffolds_GONADS.txt**
-**- NonNormalised_merged_GE_25scaffolds_CARCASSES.txt**
+* **NonNormalised_merged_GE_25scaffolds_HEADS.txt**
+* **NonNormalised_merged_GE_25scaffolds_GONADS.txt**
+* **NonNormalised_merged_GE_25scaffolds_CARCASSES.txt**
 
 
 Used the R package **NormalyzerDE** to apply a quantile normalisation to gene expression within each dataset: normalise the data once across samples, then calculate sex averages, then apply filter for TPM > 0.5, then apply a second normalisation on these averages, then save the new files.
@@ -322,9 +322,9 @@ write.table(expf_4_0.5, file = "Normalised_HEADS_GE_merged_25_scaffolds_filter_0
 
 Repeat for the other 2 tissues. In the you obtain the 3 following files:
 
-**-"Normalised_HEADS_GE_merged_25_scaffolds_filter_0.5.txt"**
-**-"Normalised_GONADS_GE_merged_25_scaffolds_filter_0.5.txt"**
-**-"Normalised_CARCASSES_GE_merged_25_scaffolds_filter_0.5.txt"**
+* **Normalised_HEADS_GE_merged_25_scaffolds_filter_0.5.txt**
+* **Normalised_GONADS_GE_merged_25_scaffolds_filter_0.5.txt**
+* **Normalised_CARCASSES_GE_merged_25_scaffolds_filter_0.5.txt**
 
 
 For each of these 3 files: columns 3, 10 and 11 will be used for the dosage compensation analysis; and columns 4 to 9 will be used for POF gene expression analysis.
