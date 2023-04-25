@@ -90,8 +90,6 @@ srun busco -f --in Panorpa_transcriptome_500bp.cds --out BUSCO_Panorpa_transcrip
 conda deactivate
 ```
 
-BUSCO results are in the newly created "BUSCO_Panorpa_transcriptome" directory. In there, look at file "short_summary.specific.arthropoda_odb10.BUSCO_panorpa_transcriptome_500bp.txt". 
-
 Results:
 ```
 ***** Results: *****
@@ -105,4 +103,4 @@ Results:
         1013    Total BUSCO groups searched  
 ```
         
-The BUSCO figure can be created by running the **busco_figure.R** script also present in the newly created directory.
+
