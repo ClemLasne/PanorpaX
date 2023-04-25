@@ -8,7 +8,6 @@ wget https://datadryad.org/stash/downloads/file_stream/1853921
 Now, we can use gff read to extract info we need.
 ```
 module load anaconda3/2022.05
-(paste line)
 conda activate gffread
 ## extarct CDS
 gffread -x CDS_no_stop_codons.fasta -g 1853921 1853920 -V
