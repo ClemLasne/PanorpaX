@@ -44,3 +44,4 @@ srun kallisto quant -t 16 -i indexed_panorpa500_transcriptome.idx -o 184802_FEMA
 
 srun kallisto quant -t 16 -i indexed_panorpa500_transcriptome.idx -o 184803_FEMALE_3_CARCASS -b 100 184803_S18_L004_R1_001_PE_paired.fastq.gz 184803_S18_L004_R2_001_PE_paired.fastq.gz
 ```
+For each fo the 18 samples, a new directory is produced containing 3 files: abundance.h5, abundance.tsv, run_info.json.
