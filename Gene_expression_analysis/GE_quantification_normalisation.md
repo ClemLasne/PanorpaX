@@ -57,8 +57,8 @@ For each fo the 18 samples, a new directory is produced containing 3 files: abun
 ## 1.2. Expression summary files with Sleuth
 
 4 ExpressionSummary.txt files must be generated:
-- 3 tissue-specific ExpressionSummary.txt files (i.e. gonads, heads, carcacasses separately): used for the dosage compensation analysis and POF expression
-- 1 all tissues together ExpressionSummary.txt (i.e. gonads, heads, carcacasses together): used for tissue-specific expression
+* 3 tissue-specific ExpressionSummary.txt files (i.e. gonads, heads, carcacasses separately): used for the dosage compensation analysis and POF expression
+* 1 all tissues together ExpressionSummary.txt (i.e. gonads, heads, carcacasses together): used for tissue-specific expression
 
 For each of these 4 dataset, do the following:
 
@@ -121,10 +121,10 @@ head(sleuth_table)
 ```
 
 Repeat for each dataset and obtain 4 Expression summary files:
-**- ExpressionSummary_HEAD_samples.txt**
-**- ExpressionSummary_GONADS_samples.txt**
-**- ExpressionSummary_CARCASSES_samples.txt**
-**- ExpressionSummary_ALLTISSUES_samples.txt**
+* ** ExpressionSummary_HEAD_samples.txt**
+* ** ExpressionSummary_GONADS_samples.txt**
+* ** ExpressionSummary_CARCASSES_samples.txt**
+* ** ExpressionSummary_ALLTISSUES_samples.txt**
 
 
 # 3. Gene expression normalisation
