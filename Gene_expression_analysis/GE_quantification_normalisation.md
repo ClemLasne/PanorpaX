@@ -286,6 +286,7 @@ expf_2$FEM_AVG <- as.numeric(expf_2$FEM_AVG)
 which(is.na(expf_2$FEM_AVG))
 head(expf_2)
 
+# filter for GE > 0.5 in male and female averages
 library(plyr)
 library(dplyr)
 
@@ -317,3 +318,13 @@ head(expf_4_0.5)
 
 # save the new dataset of normalised data
 write.table(expf_4_0.5, file = "Normalised_HEADS_GE_merged_25_scaffolds_filter_0.5.txt", quote=F)
+```
+
+Repeat for the other 2 tissues. In the you obtain the 3 following files:
+
+**-"Normalised_HEADS_GE_merged_25_scaffolds_filter_0.5.txt"**
+**-"Normalised_GONADS_GE_merged_25_scaffolds_filter_0.5.txt"**
+**-"Normalised_CARCASSES_GE_merged_25_scaffolds_filter_0.5.txt"**
+
+
+For each of these 3 files: columns 3, 10 and 11 will be used for the dosage compensation analysis; and columns 4 to 9 will be used for POF gene expression analysis.
