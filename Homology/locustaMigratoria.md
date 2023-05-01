@@ -23,7 +23,3 @@ sort -k 14 CDS_vs_genome.sorted.besthit > CDS_vs_genome.sortedbyDB
 #in case of overlap keep only gene with highest mapping score
 perl ~/2-redremov_blat_V2.pl CDS_vs_genome.sortedbyDB 
 ```
-Scaffolds and Muller elements
-'F' = 'Chom_Scaffold_315, 'E' = 'Chom_Scaffold_470'
-'D' = 'Chom_Scaffold_416' , 'C' = 'Chom_Scaffold_497'
-'B' = 'Chom_Scaffold_159' , 'A' = 'Chom_Scaffold_498'
