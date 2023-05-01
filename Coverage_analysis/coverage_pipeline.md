@@ -12,7 +12,7 @@ module load soap/coverage
 srun soap.coverage -sam -cvg -i Female.sam -onlyuniq -p 100 -refsingle yahs.out_scaffolds_final_hicpro_multimapping_matlock_0_13_03_2023.fa -window Female.soapcov 10000
 srun soap.coverage -sam -cvg -i Male.sam -onlyuniq -p 100 -refsingle yahs.out_scaffolds_final_hicpro_multimapping_matlock_0_13_03_2023.fa -window Male.soapcov 10000 
 ```
-Clean and merge files:
+Clean files:
 ```
 cat Female.soapcov | awk '{print $1, $2, $4}' | perl -pi -e 's/:.*\// /gi' | perl -pi -e 's/Depth://gi' | sort > Female.soapfinal
 cat Male.soapcov | awk '{print $1, $2, $4}' | perl -pi -e 's/:.*\// /gi' | perl -pi -e 's/Depth://gi' | sort > Male.soapfinal
