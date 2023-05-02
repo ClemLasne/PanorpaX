@@ -49,7 +49,7 @@ srun bowtie2 -x BlatGenome -1 SRR9160167_1.fastq -2 SRR9160167_2.fastq  --end-to
 srun bowtie2 -x BlatGenome -1 SRR9160168_1.fastq -2 SRR9160168_2.fastq  --end-to-end --sensitive -p 50 -S Female68.sam
 srun bowtie2 -x BlatGenome -1 Blatella_germanica_WT_6_female_heads_AGTATAGCGC_L007_R1_001.fastq.1 -2 Blatella_germanica_WT_6_female_heads_AGTATAGCGC_L007_R2_001.fastq.1 --end-to-end --sensitive -p 50 -S Female65.sam
 ```
-# Coverage for every individual
+## Coverage for every individual
 ```
 ## the two data sets were in different directories*
 module load soap/coverage
