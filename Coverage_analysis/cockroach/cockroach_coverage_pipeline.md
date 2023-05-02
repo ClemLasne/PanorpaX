@@ -36,7 +36,6 @@ wget https://sra-pub-sars-cov2.s3.amazonaws.com/sra-src/SRR9160165/Blatella_germ
 ```
 ## Index genome and map reads to it
 ```
-## the two data sets were in different directories*
 module load bowtie2/2.4.5
 srun bowtie2-build GCA_000762945.2_Bger_2.0_genomic.fna BlatGenome
 srun bowtie2 -x BlatGenome -1 SRR1566152_1.fastq -2 SRR1566152_2.fastq --end-to-end --sensitive -p 50 -S Female.sam
@@ -48,22 +47,22 @@ srun bowtie2 -x BlatGenome -1 SRR9160164_1.fastq -2 SRR9160164_2.fastq  --end-to
 SRR9160166_1.fastq -2 SRR9160166_2.fastq  --end-to-end --sensitive -p 50 -S Female66.sam
 srun bowtie2 -x BlatGenome -1 SRR9160167_1.fastq -2 SRR9160167_2.fastq  --end-to-end --sensitive -p 50 -S Female67.sam
 srun bowtie2 -x BlatGenome -1 SRR9160168_1.fastq -2 SRR9160168_2.fastq  --end-to-end --sensitive -p 50 -S Female68.sam
-srun bowtie2 -x BlatGenome -1 Blatella_germanica_WT_6_female_heads_AGTATAGCGC_L007_R1_001.fastq.1 -2 Blatella_germanica_WT_6_female_heads_AGTATAGCGC_L007_R2_001.fastq.1 --end-to-end --sensitive -p 50 -S Female.sam
+srun bowtie2 -x BlatGenome -1 Blatella_germanica_WT_6_female_heads_AGTATAGCGC_L007_R1_001.fastq.1 -2 Blatella_germanica_WT_6_female_heads_AGTATAGCGC_L007_R2_001.fastq.1 --end-to-end --sensitive -p 50 -S Female65.sam
 ```
 # Coverage for every individual
 ```
 ## the two data sets were in different directories*
 module load soap/coverage
-srun soap.coverage -sam -cvg -i Female.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Female.soapcov
-srun soap.coverage -sam -cvg -i Male54.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Male54.soapcov
-srun soap.coverage -sam -cvg -i Male55.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Male55.soapcov
-srun soap.coverage -sam -cvg -i Male59.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Male59.soapcov
-srun soap.coverage -sam -cvg -i Female.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Female.soapcov
-srun soap.coverage -sam -cvg -i Male54.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Male54.soapcov
-srun soap.coverage -sam -cvg -i Male55.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Male55.soapcov
-srun soap.coverage -sam -cvg -i Male59.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Male59.soapcov
-srun soap.coverage -sam -cvg -i Male63.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Male63.soapcov
-srun soap.coverage -sam -cvg -i Male64.sam -onlyuniq -p 50 -refsingle /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/Cockroach/GCA_000762945.2_Bger_2.0_genomic.fna -o Male64.soapcov
+srun soap.coverage -sam -cvg -i Female.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Female.soapcov
+srun soap.coverage -sam -cvg -i Male54.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Male54.soapcov
+srun soap.coverage -sam -cvg -i Male55.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Male55.soapcov
+srun soap.coverage -sam -cvg -i Male59.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Male59.soapcov
+srun soap.coverage -sam -cvg -i Female65.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Female65.soapcov
+srun soap.coverage -sam -cvg -i Male54.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Male54.soapcov
+srun soap.coverage -sam -cvg -i Male55.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Male55.soapcov
+srun soap.coverage -sam -cvg -i Male59.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Male59.soapcov
+srun soap.coverage -sam -cvg -i Male63.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Male63.soapcov
+srun soap.coverage -sam -cvg -i Male64.sam -onlyuniq -p 50 -refsingle ~/GCA_000762945.2_Bger_2.0_genomic.fna -o Male64.soapcov
 
 ```
 Clean files
