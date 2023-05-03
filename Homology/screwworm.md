@@ -16,7 +16,7 @@ gffread -x CDS_no_stop_codons.fasta -g 1853921 1853920 -V
 First, we need to sort the names in the fasta file. Then we cna use ther perl script. In this case, only 1 gene will be removed.
 ```
 cat CDS_no_stop_codons.fasta | perl -pi -e 's/\n/ /gi' | perl -pi -e 's/>/\n>/gi' | sort | perl -pi -e 's/ /\n/gi' | perl -pi -e 's/^\n//gi' > CDS_no_stop.sorted
-perl /nfs/scistore18/vicosgrp/bvicoso/scripts/getlongestCDS_v2.pl CDS_no_stop.sorted
+perl ~/getlongestCDS_v2.pl CDS_no_stop.sorted
 
 #this generates the file CDS_no_stop.sorted.longestCDS
 ```
