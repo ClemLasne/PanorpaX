@@ -1,16 +1,16 @@
-# Download and unzip gff file and genome
+## Download and unzip gff file and genome
 ```
 wget https://datadryad.org/stash/downloads/file_stream/1853920
 wget https://datadryad.org/stash/downloads/file_stream/1853921
 ```
-# Get protein sequences from gff file
+## Get protein sequences from gff file
 ```
 module load anaconda3/2022.05
 conda activate gffread
 ## by adding -S we replace '.' by '*' for the stop codons and then orthofinder can be executed
 gffread -y prot3.fasta -g 1853921 1853920 -S
 ```
-# Get predicted aminoacids from Panorpa transcripts
+## Get predicted aminoacids from Panorpa transcripts
 ```
 perl ~/GetLongestAA_v1_July2020.pl Panorpa_transcriptome_500bp.cds
 ```
