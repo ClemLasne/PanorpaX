@@ -236,7 +236,7 @@ write.table(expf_4, file = "Normalised_merged_GE_25scaffolds_ALLTISSUES.txt", qu
 From the resulting file "Normalised_merged_GE_25scaffolds_ALLTISSUES.txt", we used once-normalised gene expression for each sample (columns (4:21) of the dataset) to produce the **Spearman correlation heatmap** and twice-normalised per-tissue expression averages (columns (22:25) of the dataset) for the **tissue-specific gene expression analysis**
 
 
-## 3.2. GE normalisation in each tissue sperately (POF expression and dosage compensation analyses)
+## 3.2. GE normalisation in each tissue sperately (for POF expression and dosage compensation analyses)
 
 Use the previously created datasets:
 * **NonNormalised_merged_GE_25scaffolds_HEADS.txt**
