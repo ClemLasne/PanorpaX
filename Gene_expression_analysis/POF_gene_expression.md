@@ -6,7 +6,7 @@ library(ggplot2)
 
 ### 2. load datasets
 # loads HAEDS dataset
-GE_heads<- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/POF/Normalised_HEADS_GE_merged_25_scaffolds_NO_TPM_FILTER.txt", head=T, sep="")
+GE_heads<- read.table("~/PATH/Normalised_HEADS_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
 head(GE_heads)
 str(GE_heads) 
 str(GE_heads[GE_heads$Transcript == "TRINITY_DN1501_c0_g2_i2",])
@@ -16,7 +16,7 @@ colnames(GE_heads)<-c("Transcript", "head_M1","head_M2","head_M3", "head_F1","he
 head(GE_heads)
 
 # load CARCASSES dataset
-GE_carcasses <- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/POF/Normalised_CARCASSES_GE_merged_25_scaffolds_NO_TPM_FILTER.txt", head=T, sep="")
+GE_carcasses <- read.table("~/PATH/Normalised_CARCASSES_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
 head(GE_carcasses)
 str(GE_carcasses) 
 str(GE_carcasses[GE_carcasses$Transcript == "TRINITY_DN1501_c0_g2_i2",])
@@ -26,7 +26,7 @@ colnames(GE_carcasses)<-c("Transcript", "carcass_M1","carcass_M2","carcass_M3", 
 head(GE_carcasses)
 
 # laod GONADS dataset
-GE_gonads<- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/POF/Normalised_GONADS_GE_merged_25_scaffolds_NO_TPM_FILTER.txt", head=T, sep="")
+GE_gonads<- read.table("~/PATH/Normalised_GONADS_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
 head(GE_gonads)
 str(GE_gonads) 
 str(GE_gonads[GE_gonads$Transcript == "TRINITY_DN1501_c0_g2_i2",])
