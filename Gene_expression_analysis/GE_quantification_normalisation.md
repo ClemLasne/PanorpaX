@@ -131,7 +131,34 @@ Repeat for each dataset and obtain 4 Expression summary files:
 
 Before normalising gene expression, the ExpressionSummary.txt files were each independently merged with a .txt file containing the scaffold number of each gene, focusing on the first 25 scaffolds of the genome assembly (see manuscript for justification). This step was done in R.
 
-(e.g. with heads again)
+**For the ALL_TISSUES dataset:
+```ruby
+## LOAD chrom loac dataset
+chrom_location <- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/trans_location25.txt", head=T, sep=",") # 12357 transcripts: 1274 X, and 11083 autosomal
+head(chrom_location)
+colnames(chrom_location)<-c("Transcript", "Scaffold", "chromosome") 
+str(chrom_location$chromosome)
+chrom_location$chromosome <- factor(chrom_location$chromosome, levels = c("A", "X"))
+levels(chrom_location$chromosome)
+summary(chrom_location$chromosome)
+
+# Load non-normalised Expression_Summary file
+GE <- read.table("~/PATH/ExpressionSummary_ALLTISSUES_samples.txt", head=T, sep="")
+head(GE)
+str(GE)
+colnames(GE)<-c("gene", "MALE1_HEAD","MALE1_GONADS","MALE1_CARCASS", "MALE2_HEAD","MALE2_GONADS","MALE2_CARCASS","MALE3_HEAD","MALE3_GONADS","MALE3_CARCASS",
+                              "FEM1_HEAD","FEM1_GONADS","FEM1_CARCASS","FEM2_HEAD","FEM2_GONADS","FEM2_CARCASS", "FEM3_HEAD","FEM3_GONADS","FEM3_CARCASS") 
+head(GE)
+
+# merge files
+merged_GE_loc <-merge(chrom_location,GE, by.x="Transcript", by.y="gene")
+head(merged_GE_loc)
+
+# write file
+write.table(merged_GE_loc,"~/PATH/NonNormalised_merged_GE_25scaffolds_ALLTISSUES.txt")
+```
+
+**For tissue-specific datasets**(e.g. with heads again)
 
 ```ruby
 ## LOAD the genomic location file called trans_location25.txt
@@ -163,6 +190,8 @@ Repeat for the other 3 ExpressionSummary.txt files and obtain the 4 following fi
 * **NonNormalised_merged_GE_25scaffolds_HEADS.txt**
 * **NonNormalised_merged_GE_25scaffolds_GONADS.txt**
 * **NonNormalised_merged_GE_25scaffolds_CARCASSES.txt**
+
+
 * **NonNormalised_merged_GE_25scaffolds_ALLTISSUES.txt**
 
 
