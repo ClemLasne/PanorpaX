@@ -1,0 +1,132 @@
+Once the RNA-seq data is downloaded, proceed to quality control and trimming and cleaning of the reads.
+
+# 1. INITIAL FastQC analysis on raw RNA-seq DATA
+
+In a slurm script:
+Content of the script:
+```ruby
+#load modules
+module load java
+module load fastqc
+
+#command
+srun *.fastq.gz
+```
+Look at html files 
+
+**RESULTS** The forward and reverse read sequences are on average 150 bp long, we have lots of reads in each file and it looks really good overall. One issue: the adaptors have been left on the forward reads (i.e. the 30 first base of each forward reads are identical across all samples), but not the reverse. Remove them with TRIMMOMATIC
+
+# 2. TRIMMOMATIC Single End (SE) with HEADCROP OPTION
+
+## 2.1. Forward reads
+
+Trimm first 30 bp.
+
+In a slurm script:
+```ruby
+#load modules
+module load java
+
+#command
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184786_S1_L004_R1_001.fastq.gz 184786_S1_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184787_S2_L004_R1_001.fastq.gz 184787_S2_L004_R1_001_SE.fastq.gz HEADCROP:30 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184788_S3_L004_R1_001.fastq.gz 184788_S3_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184789_S4_L004_R1_001.fastq.gz 184789_S4_L004_R1_001_SE.fastq.gz HEADCROP:30 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184790_S5_L004_R1_001.fastq.gz 184790_S5_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184791_S6_L004_R1_001.fastq.gz 184791_S6_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184792_S7_L004_R1_001.fastq.gz 184792_S7_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184793_S8_L004_R1_001.fastq.gz 184793_S8_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184794_S9_L004_R1_001.fastq.gz 184794_S9_L004_R1_001_SE.fastq.gz HEADCROP:30 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184795_S10_L004_R1_001.fastq.gz 184795_S10_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184796_S11_L004_R1_001.fastq.gz 184796_S11_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184797_S12_L004_R1_001.fastq.gz 184797_S12_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184798_S13_L004_R1_001.fastq.gz 184798_S13_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184799_S14_L004_R1_001.fastq.gz 184799_S14_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184800_S15_L004_R1_001.fastq.gz 184800_S15_L004_R1_001_SE.fastq.gz HEADCROP:30 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184801_S16_L004_R1_001.fastq.gz 184801_S16_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184802_S17_L004_R1_001.fastq.gz 184802_S17_L004_R1_001_SE.fastq.gz HEADCROP:30
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184803_S18_L004_R1_001.fastq.gz 184803_S18_L004_R1_001_SE.fastq.gz HEADCROP:30
+```
+
+## 2.2. Reverse reads
+
+Trimm first 8 bp.
+
+Content of the script:
+```ruby
+#load modules
+module load java
+
+#command
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184786_S1_L004_R2_001.fastq.gz 184786_S1_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184787_S2_L004_R2_001.fastq.gz 184787_S2_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184788_S3_L004_R2_001.fastq.gz 184788_S3_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184789_S4_L004_R2_001.fastq.gz 184789_S4_L004_R2_001_SE.fastq.gz HEADCROP:8 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184790_S5_L004_R2_001.fastq.gz 184790_S5_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184791_S6_L004_R2_001.fastq.gz 184791_S6_L004_R2_001_SE.fastq.gz HEADCROP:80
+srun java -jar /PATH_TOT/rimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184792_S7_L004_R2_001.fastq.gz 184792_S7_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184793_S8_L004_R2_001.fastq.gz 184793_S8_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184794_S9_L004_R2_001.fastq.gz 184794_S9_L004_R2_001_SE.fastq.gz HEADCROP:8 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184795_S10_L004_R2_001.fastq.gz 184795_S10_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184796_S11_L004_R2_001.fastq.gz 184796_S11_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184797_S12_L004_R2_001.fastq.gz 184797_S12_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184798_S13_L004_R2_001.fastq.gz 184798_S13_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184799_S14_L004_R2_001.fastq.gz 184799_S14_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184800_S15_L004_R2_001.fastq.gz 184800_S15_L004_R2_001_SE.fastq.gz HEADCROP:8 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184801_S16_L004_R2_001.fastq.gz 184801_S16_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184802_S17_L004_R2_001.fastq.gz 184802_S17_L004_R2_001_SE.fastq.gz HEADCROP:8
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar SE -threads 40 184803_S18_L004_R2_001.fastq.gz 184803_S18_L004_R2_001_SE.fastq.gz HEADCROP:8
+```
+
+## 3. fastQC check on trimmed SE forward and reverse read files
+
+Content of the slurm script:
+```ruby
+#load modules
+module load java
+module load fastqc
+
+#command
+srun fastqc *_SE.fastq.gz
+```
+
+## 4. Generate Paired-end files with TRIMMOMATIC using the previously created SE files
+
+Content of the slurm script:
+```ruby
+#load modules
+module load java
+
+#command
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184786_S1_L004_R1_001_SE.fastq.gz 184786_S1_L004_R2_001_SE.fastq.gz 184786_S1_L004_R1_001_PE_paired.fastq.gz 184786_S1_L004_R1_001_PE_unpaired.fastq.gz 184786_S1_L004_R2_001_PE_paired.fastq.gz 184786_S1_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184787_S2_L004_R1_001_SE.fastq.gz 184787_S2_L004_R2_001_SE.fastq.gz 184787_S2_L004_R1_001_PE_paired.fastq.gz 184787_S2_L004_R1_001_PE_unpaired.fastq.gz 184787_S2_L004_R2_001_PE_paired.fastq.gz 184787_S2_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184788_S3_L004_R1_001_SE.fastq.gz 184788_S3_L004_R2_001_SE.fastq.gz 184788_S3_L004_R1_001_PE_paired.fastq.gz 184788_S3_L004_R1_001_PE_unpaired.fastq.gz 184788_S3_L004_R2_001_PE_paired.fastq.gz 184788_S3_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184789_S4_L004_R1_001_SE.fastq.gz 184789_S4_L004_R2_001_SE.fastq.gz 184789_S4_L004_R1_001_PE_paired.fastq.gz 184789_S4_L004_R1_001_PE_unpaired.fastq.gz 184789_S4_L004_R2_001_PE_paired.fastq.gz 184789_S4_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184790_S5_L004_R1_001_SE.fastq.gz 184790_S5_L004_R2_001_SE.fastq.gz 184790_S5_L004_R1_001_PE_paired.fastq.gz 184790_S5_L004_R1_001_PE_unpaired.fastq.gz 184790_S5_L004_R2_001_PE_paired.fastq.gz 184790_S5_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184791_S6_L004_R1_001_SE.fastq.gz 184791_S6_L004_R2_001_SE.fastq.gz 184791_S6_L004_R1_001_PE_paired.fastq.gz 184791_S6_L004_R1_001_PE_unpaired.fastq.gz 184791_S6_L004_R2_001_PE_paired.fastq.gz 184791_S6_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184792_S7_L004_R1_001_SE.fastq.gz 184792_S7_L004_R2_001_SE.fastq.gz 184792_S7_L004_R1_001_PE_paired.fastq.gz 184792_S7_L004_R1_001_PE_unpaired.fastq.gz 184792_S7_L004_R2_001_PE_paired.fastq.gz 184792_S7_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184793_S8_L004_R1_001_SE.fastq.gz 184793_S8_L004_R2_001_SE.fastq.gz 184793_S8_L004_R1_001_PE_paired.fastq.gz 184793_S8_L004_R1_001_PE_unpaired.fastq.gz 184793_S8_L004_R2_001_PE_paired.fastq.gz 184793_S8_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184794_S9_L004_R1_001_SE.fastq.gz 184794_S9_L004_R2_001_SE.fastq.gz 184794_S9_L004_R1_001_PE_paired.fastq.gz 184794_S9_L004_R1_001_PE_unpaired.fastq.gz 184794_S9_L004_R2_001_PE_paired.fastq.gz 184794_S9_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184795_S10_L004_R1_001_SE.fastq.gz 184795_S10_L004_R2_001_SE.fastq.gz 184795_S10_L004_R1_001_PE_paired.fastq.gz 184795_S10_L004_R1_001_PE_unpaired.fastq.gz 184795_S10_L004_R2_001_PE_paired.fastq.gz 184795_S10_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184796_S11_L004_R1_001_SE.fastq.gz 184796_S11_L004_R2_001_SE.fastq.gz 184796_S11_L004_R1_001_PE_paired.fastq.gz 184796_S11_L004_R1_001_PE_unpaired.fastq.gz 184796_S11_L004_R2_001_PE_paired.fastq.gz 184796_S11_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184797_S12_L004_R1_001_SE.fastq.gz 184797_S12_L004_R2_001_SE.fastq.gz 184797_S12_L004_R1_001_PE_paired.fastq.gz 184797_S12_L004_R1_001_PE_unpaired.fastq.gz 184797_S12_L004_R2_001_PE_paired.fastq.gz 184797_S12_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184798_S13_L004_R1_001_SE.fastq.gz 184798_S13_L004_R2_001_SE.fastq.gz 184798_S13_L004_R1_001_PE_paired.fastq.gz 184798_S13_L004_R1_001_PE_unpaired.fastq.gz 184798_S13_L004_R2_001_PE_paired.fastq.gz 184798_S13_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184799_S14_L004_R1_001_SE.fastq.gz 184799_S14_L004_R2_001_SE.fastq.gz 184799_S14_L004_R1_001_PE_paired.fastq.gz 184799_S14_L004_R1_001_PE_unpaired.fastq.gz 184799_S14_L004_R2_001_PE_paired.fastq.gz 184799_S14_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184800_S15_L004_R1_001_SE.fastq.gz 184800_S15_L004_R2_001_SE.fastq.gz 184800_S15_L004_R1_001_PE_paired.fastq.gz 184800_S15_L004_R1_001_PE_unpaired.fastq.gz 184800_S15_L004_R2_001_PE_paired.fastq.gz 184800_S15_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184801_S16_L004_R1_001_SE.fastq.gz 184801_S16_L004_R2_001_SE.fastq.gz 184801_S16_L004_R1_001_PE_paired.fastq.gz 184801_S16_L004_R1_001_PE_unpaired.fastq.gz 184801_S16_L004_R2_001_PE_paired.fastq.gz 184801_S16_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184802_S17_L004_R1_001_SE.fastq.gz 184802_S17_L004_R2_001_SE.fastq.gz 184802_S17_L004_R1_001_PE_paired.fastq.gz 184802_S17_L004_R1_001_PE_unpaired.fastq.gz 184802_S17_L004_R2_001_PE_paired.fastq.gz 184802_S17_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+srun java -jar /PATH_TO/Trimmomatic-0.36/trimmomatic-0.36.jar PE -threads 40 184803_S18_L004_R1_001_SE.fastq.gz 184803_S18_L004_R2_001_SE.fastq.gz 184803_S18_L004_R1_001_PE_paired.fastq.gz 184803_S18_L004_R1_001_PE_unpaired.fastq.gz 184803_S18_L004_R2_001_PE_paired.fastq.gz 184803_S18_L004_R2_001_PE_unpaired.fastq.gz ILLUMINACLIP:/PATH_TO/Trimmomatic-0.36/adapters/TruSeq3-PE.fa:2:30:10 SLIDINGWINDOW:4:22 MINLEN:36 LEADING:3 TRAILING:3 
+```
+
+## 5. fastQC on PE read files
+
+Content of the script:
+```ruby
+#load modules
+module load java
+module load fastqc
+
+#command
+srun fastqc *_PE_paired.fastq.gz
+```
+have a look at the html files
