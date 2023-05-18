@@ -22,7 +22,7 @@ perl ~/GetLongestAA_v1_July2020.pl Panorpa_transcriptome_500bp.cds
 For each transcript it will output the longest AA that can be produced from it. The output file would be: Panorpa_transcriptome_500bp.cds.aa
 # Orthofinder
 
-## Get protein sequences and get longest isoforms for outgroup species (mosquito):
+Get protein sequences and get longest isoforms for outgroup species (mosquito):
 ```
 wget http://ftp.ensemblgenomes.org/pub/metazoa/release-55/fasta/aedes_aegypti_lvpagwg/pep/Aedes_aegypti_lvpagwg.AaegL5.pep.all.fa.gz
 gzip -d Aedes_aegypti_lvpagwg.AaegL5.pep.all.fa.gz
