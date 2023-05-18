@@ -70,7 +70,7 @@ srun samtools faidx Panorpa_transcriptome_500bp.cds
 srun vcftools --vcf AllSites_Panorpa_SNP.vcf --remove-indels --minQ 30 --minDP 4 --maxDP 200 --recode --stdout >  AllSites_Panorpa_SNP_filtered.vcf
 ```
 
-### tabix and bgzip step 
+## tabix and bgzip step 
 In a slurm script:
 ```ruby
 #modules
@@ -93,7 +93,7 @@ Content of the file (remember that this is TAB and not SPACE separated)
 ```
 
 
-## run pixy
+## Run pixy
 Content of the script:
 ```ruby
 #modules 
@@ -114,7 +114,7 @@ conda deactivate
 
 **Pixy created 3 files: pixy_output_dxy.txt, pixy_output_fst.txt and pixy_output_pi.txt**. Only **pixy_output_pi.txt** is of interest for our analysis.
 
-## 3. Plot and stats
+# 3. Plot and stats
 
 ```ruby
 library(ggplot2)
