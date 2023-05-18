@@ -129,7 +129,7 @@ Repeat for each dataset and obtain 4 Expression summary files:
 
 # 3. Gene expression normalisation
 
-Before normalising gene expression, the ExpressionSummary.txt files were each independelty merged with a .txt file containing the scaffold number of each gene, focusing on the first 25 scaffolds of the genome assembly (see manuscript for justification). This step was done in R.
+Before normalising gene expression, the ExpressionSummary.txt files were each independently merged with a .txt file containing the scaffold number of each gene, focusing on the first 25 scaffolds of the genome assembly (see manuscript for justification). This step was done in R.
 
 (e.g. with heads again)
 
