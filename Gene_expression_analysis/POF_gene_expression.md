@@ -5,35 +5,24 @@ library(tidyverse)
 library(ggplot2)
 
 ### 2. load datasets
+
 # loads HAEDS dataset
 GE_heads<- read.table("~/PATH/Normalised_HEADS_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
 head(GE_heads)
 str(GE_heads) 
 str(GE_heads[GE_heads$Transcript == "TRINITY_DN1501_c0_g2_i2",])
-GE_heads = GE_heads[, c(1,4:9)]
-head(GE_heads)
-colnames(GE_heads)<-c("Transcript", "head_M1","head_M2","head_M3", "head_F1","head_F2","head_F3") 
-head(GE_heads)
 
 # load CARCASSES dataset
 GE_carcasses <- read.table("~/PATH/Normalised_CARCASSES_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
 head(GE_carcasses)
 str(GE_carcasses) 
 str(GE_carcasses[GE_carcasses$Transcript == "TRINITY_DN1501_c0_g2_i2",])
-GE_carcasses = GE_carcasses[, c(1,4:9)]
-head(GE_carcasses)
-colnames(GE_carcasses)<-c("Transcript", "carcass_M1","carcass_M2","carcass_M3", "carcass_F1","carcass_F2","carcass_F3") 
-head(GE_carcasses)
 
 # laod GONADS dataset
 GE_gonads<- read.table("~/PATH/Normalised_GONADS_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
 head(GE_gonads)
 str(GE_gonads) 
 str(GE_gonads[GE_gonads$Transcript == "TRINITY_DN1501_c0_g2_i2",])
-GE_gonads = GE_gonads[, c(1,4:9)]
-head(GE_gonads)
-colnames(GE_gonads)<-c("Transcript", "testes1","testes2","testes3", "ovaries1","ovaries2","ovaries3") 
-head(GE_gonads)
 
 
 ### 3. Merge datasets 
