@@ -131,7 +131,7 @@ Repeat for each dataset and obtain 4 Expression summary files:
 
 Before normalising gene expression, the ExpressionSummary.txt files were each independently merged with a .txt file containing the scaffold number of each gene, focusing on the first 25 scaffolds of the genome assembly (see manuscript for justification). This step was done in R.
 
-**For the ALL_TISSUES dataset:
+**For the ALL_TISSUES dataset:**
 ```ruby
 ## LOAD chrom loac dataset
 chrom_location <- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/trans_location25.txt", head=T, sep=",") # 12357 transcripts: 1274 X, and 11083 autosomal
@@ -187,12 +187,11 @@ head(merged_GE_loc)
 write.table(merged_GE_loc,"~/PATH/NonNormalised_merged_GE_25scaffolds_HEADS.txt")
 ```
 Repeat for the other 3 ExpressionSummary.txt files and obtain the 4 following files:
+* **NonNormalised_merged_GE_25scaffolds_ALLTISSUES.txt**
 * **NonNormalised_merged_GE_25scaffolds_HEADS.txt**
 * **NonNormalised_merged_GE_25scaffolds_GONADS.txt**
 * **NonNormalised_merged_GE_25scaffolds_CARCASSES.txt**
 
-
-* **NonNormalised_merged_GE_25scaffolds_ALLTISSUES.txt**
 
 
 ## 3.1. GE normalisation for Spearman correlation and tissue-specific expression analyses
