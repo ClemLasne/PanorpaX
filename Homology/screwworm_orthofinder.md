@@ -3,6 +3,11 @@
 wget https://datadryad.org/stash/downloads/file_stream/1853920
 wget https://datadryad.org/stash/downloads/file_stream/1853921
 ```
+Get genes location
+```
+awk '$3=="transcript"{print $1,$9}' 1853920 > transcript_names
+## file would be processed in textEdit to import it as a dataframe in Python, name: transcript_names_final.txt
+```
 ## Get protein sequences from gff file
 ```
 module load anaconda3/2022.05
@@ -63,6 +68,6 @@ cat Panorpa_transcriptome_500bp__v__screwworm_sortedprots3.tsv | awk '($2 ~/TRIN
 ```
 Line end trimming
 ```
-perl /nfs/scistore18/vicosgrp/bvicoso/scripts/linendings.pl --unix Panorpa_screw_1to1.txt
+perl ~/linendings.pl --unix Panorpa_screw_1to1.txt
 ```
 
