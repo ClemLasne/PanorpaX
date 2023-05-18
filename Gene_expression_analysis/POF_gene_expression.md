@@ -7,19 +7,19 @@ library(ggplot2)
 ### 2. load datasets
 
 # loads HAEDS dataset
-GE_heads<- read.table("~/PATH/Normalised_HEADS_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
+GE_heads<- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/POF/Normalised_HEADS_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
 head(GE_heads)
 str(GE_heads) 
 str(GE_heads[GE_heads$Transcript == "TRINITY_DN1501_c0_g2_i2",])
 
 # load CARCASSES dataset
-GE_carcasses <- read.table("~/PATH/Normalised_CARCASSES_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
+GE_carcasses <- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/POF/Normalised_CARCASSES_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
 head(GE_carcasses)
 str(GE_carcasses) 
 str(GE_carcasses[GE_carcasses$Transcript == "TRINITY_DN1501_c0_g2_i2",])
 
 # laod GONADS dataset
-GE_gonads<- read.table("~/PATH/Normalised_GONADS_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
+GE_gonads<- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/POF/Normalised_GONADS_GE_25scaf_no_TPM_filtering.txt", head=T, sep="")
 head(GE_gonads)
 str(GE_gonads) 
 str(GE_gonads[GE_gonads$Transcript == "TRINITY_DN1501_c0_g2_i2",])
@@ -70,26 +70,26 @@ PLOT <- ggplot(POF, aes(x=sample, y=log2(gene_exp+1), fill = sex)) +
   geom_bar(stat = "identity") +
   ylab("Log2 (TPM+1)") +
   xlab("Sample") +
-
-theme(
-  legend.position = c(.99, .99),
-  legend.justification = c("right", "top"),
-  legend.text = element_text(size=12),
-  legend.title = element_blank(),
   
-  axis.line = element_line(colour = "black"),
-  panel.grid.major = element_blank(),
-  panel.grid.minor = element_blank(),
-  panel.border = element_rect(color = "black",fill = NA,size = 1),
-  panel.background = element_blank(),
-  
-  plot.title = element_text(hjust = 0, size=14, face = "bold"),
-  
-  axis.text.y = element_text(size=12),
-  axis.title.y = element_text(margin=margin(r=3), size = 13, face ="bold"),
-  
-  axis.text.x = element_text(vjust = 0.2, angle=90, hjust=1, size = 12, face ="bold", color = "black"),
-  axis.title.x = element_text(size = 13, face ="bold"))
+  theme(
+    legend.position = c(.99, .99),
+    legend.justification = c("right", "top"),
+    legend.text = element_text(size=12),
+    legend.title = element_blank(),
+    
+    axis.line = element_line(colour = "black"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_rect(color = "black",fill = NA,size = 1),
+    panel.background = element_blank(),
+    
+    plot.title = element_text(hjust = 0, size=14, face = "bold"),
+    
+    axis.text.y = element_text(size=12),
+    axis.title.y = element_text(margin=margin(r=3), size = 13, face ="bold"),
+    
+    axis.text.x = element_text(vjust = 0.2, angle=90, hjust=1, size = 12, face ="bold", color = "black"),
+    axis.title.x = element_text(size = 13, face ="bold"))
 
 PLOT
 
