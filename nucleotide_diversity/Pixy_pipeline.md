@@ -116,12 +116,13 @@ conda deactivate
 
 # 3. Plot and stats
 
+In R: 
 ```ruby
 library(ggplot2)
 library(ggsignif)
 
 ## Load scaffold genomic location dataset
-chrom_location <- read.table("~/PATH/trans_location25.txt", head=T, sep=",") 
+chrom_location <- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/trans_location25.txt", head=T, sep=",") 
 head(chrom_location)
 # rename columns
 colnames(chrom_location)<-c("Transcript","scaffold","chromosome") 
@@ -142,7 +143,7 @@ summary(chrom_location$chromosome)
 
 
 # Load pi_diversity pixy dataset
-pixy_FM_df <- read.table("~/PATH/pixy_output_pi.txt", head=T, sep="")
+pixy_FM_df <- read.table("~/Documents/MECOPTERA/SNP_Pi_diversity/post_hack_check_2023/pixy/pixy_output_pi.txt", head=T, sep="")
 head(pixy_FM_df)
 
 # make a female subset and filter for number of sites (no_sites) >500
@@ -200,24 +201,23 @@ options(scipen = 999) # options(scipen = 0) # default = 0 # suppresses scientifi
 descriptive_stats_males <- summary.by.group( pixy_male_loc$chromosome, pixy_male_loc$avg_pi)
 descriptive_stats_males
 
-median_males_X <-descriptive_stats_males [6, 2]
-median_males_X
-median_males_A <-descriptive_stats_males [6, 3]
+median_males_A <-descriptive_stats_males [6, 2]
 median_males_A
-
-median_males_X/median_males_A 
+median_males_X <-descriptive_stats_males [6, 3]
+median_males_X
+median_males_X/median_males_A # result: 0.1202689
 
 
 #### descriptive stats for males FEMALES
 descriptive_stats_females <- summary.by.group( pixy_female_loc$chromosome, pixy_female_loc$avg_pi)
 descriptive_stats_females
 
-median_females_X <- descriptive_stats_females [6, 2]
-median_females_X
-median_females_A <- descriptive_stats_females [6, 3]
+median_females_A <- descriptive_stats_females [6, 2]
 median_females_A
+median_females_X <- descriptive_stats_females [6, 3]
+median_females_X
 
-median_females_X/median_females_A 
+median_females_X/median_females_A # result: 0.22738
 
 ### Wilcoxon tests
 # FEMALES p-value 
@@ -279,7 +279,6 @@ Pixy_FEM_X_A
 #jpeg("Pi_diversity_FEM_X_A_plot.jpg", width = 2.8, height = 5, units = "in", res = 400)
 #Pixy_FEM_X_A 
 #dev.off()
-
 
 
 ### Male plot ###
