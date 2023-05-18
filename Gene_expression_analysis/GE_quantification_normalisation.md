@@ -62,9 +62,9 @@ For each fo the 18 samples, a new directory is produced containing 3 files: abun
 
 For each of these 4 dataset, do the following:
 
-1. Create a new directory called **KalFiles** and containing exclusively the Kallisto gene expression dictories of interests. 
+1. Create a new directory called **KalFiles** and containing exclusively the Kallisto gene expression directories of interests. 
 
-(e.g. with heads)
+Content of the directory (e.g. with heads):
 ```ruby
 184786_MALE_1_HEAD
 184789_MALE_2_HEAD
@@ -77,7 +77,7 @@ For each of these 4 dataset, do the following:
 
 2. Outside of this **KalFiles** directory, create a companion text file with the the Kallisto directory name for each sample to analyse, and the category this sample belongs to. Important: the samples must be listed in this companion flie *in the same order* as they are listed in the **KalFiles** directory.
 
-(e.g. with heads, companion file called "KalFiles_HEADS_samples_info.txt", categories: Male(M_HEAD) and Female(F_HEAD) )
+Content of the .txt companion file (e.g. with heads, companion file called "KalFiles_HEADS_samples_info.txt", categories: Male(M_HEAD) and Female(F_HEAD) )
 
 ```ruby
 run_accession condition
@@ -91,7 +91,7 @@ run_accession condition
 
 3. Still outside of this **KalFiles** directory, run the following R script.
 
-(e.g. with heads)
+Using R version 4.1.0 (e.g. with heads):
 ```ruby
 library("sleuth")
 base_dir <- "/path/to/current/working/directory/" # not the KalFiles directory
