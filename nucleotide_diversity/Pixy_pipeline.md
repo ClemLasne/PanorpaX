@@ -118,7 +118,7 @@ library(ggplot2)
 library(ggsignif)
 
 ## Load scaffold genomic location dataset
-chrom_location <- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/trans_location25.txt", head=T, sep=",") 
+chrom_location <- read.table("~/PATH/trans_location25.txt", head=T, sep=",") 
 head(chrom_location)
 # rename columns
 colnames(chrom_location)<-c("Transcript","scaffold","chromosome") 
@@ -139,7 +139,7 @@ summary(chrom_location$chromosome)
 
 
 # Load pi_diversity pixy dataset
-pixy_FM_df <- read.table("~/Documents/MECOPTERA/SNP_Pi_diversity/post_hack_check_2023/pixy/pixy_output_pi.txt", head=T, sep="")
+pixy_FM_df <- read.table("~/PATH/pixy_output_pi.txt", head=T, sep="")
 head(pixy_FM_df)
 
 # make a female subset and filter for number of sites (no_sites) >500
