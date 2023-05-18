@@ -2,15 +2,10 @@ Although the Pixy program developpers have written excellent guidelines on how t
 
 **In a directory, have the following files:**
 * the transcriptome file **"Panorpa_transcriptome_500bp.cds"**
-* the male and female  paired-end forward and reverse **fasta.gz HEADS files**
+* the male and female paired-end forward and reverse **fasta.gz HEADS files**
 
 
 # 1. Make .bam files for each HEAD sample from the fasta read files
-
-Slurm script:
-```ruby
-pico mapping_script.sh
-```
 
 Content of the script:
 ```ruby
@@ -34,8 +29,9 @@ https://pixy.readthedocs.io/en/latest/generating_invar/generating_invar.html
 
 ## Generating AllSites VCFs using BCFtools (mpileup/call)
 
-### Make a companion file
-In a .txt file:
+### Make a .txt companion file
+
+Content of the file:
 ```ruby
 184786_Male1.bam
 184789_Male2.bam
