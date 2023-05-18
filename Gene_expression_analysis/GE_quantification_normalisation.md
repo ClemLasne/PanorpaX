@@ -1,9 +1,8 @@
 # 1. Gene expression quantification
 
-
-In a directory containing
-(1) the indexed transcriptome "indexed_panorpa500_transcriptome.idx" 
-(2) forward and reversed read files for each RNA-seq sample (previouly trimmed in Trimmomatic)
+Put in the same directory:
+* (1) the indexed transcriptome "indexed_panorpa500_transcriptome.idx" (see Kallisto_transcriptome_indexing" step)
+* (2) forward and reverse read files for each RNA-seq sample (see "Trimmomatic_RNAseq_files" step)
 
 We used **Kallisto** to quantify gene expression and then the R package **Sleuth** produce "ExpressionSummary.txt" files.
 
@@ -57,8 +56,9 @@ For each fo the 18 samples, a new directory is produced containing 3 files: abun
 ## 1.2. Expression summary files with Sleuth
 
 4 ExpressionSummary.txt files must be generated:
-* 3 tissue-specific ExpressionSummary.txt files (i.e. gonads, heads, carcacasses separately): used for the dosage compensation analysis and POF expression
-* 1 all tissues together ExpressionSummary.txt (i.e. gonads, heads, carcacasses together): used for tissue-specific expression
+* 1 ALL TISSUES together ExpressionSummary.txt file(i.e. gonads, heads, carcacasses together): used for Spearman correlation heatmap, and tissue-specific expression
+* 3 TISSUE-SPECIFIC ExpressionSummary.txt files (i.e. gonads, heads, carcacasses separately): used for the dosage compensation analysis and POF expression
+
 
 For each of these 4 dataset, do the following:
 
