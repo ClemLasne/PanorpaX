@@ -10,7 +10,7 @@ library(stringr)
 
 ### 2. Load dataset and keep only useful columns
 
-GE <- read.table("Normalised_merged_GE_25scaffolds_ALLTISSUES.txt", head=T, sep="")
+GE <- read.table("~/PATH/Normalised_merged_GE_25scaffolds_ALLTISSUES.txt", head=T, sep="")
 head(GE)
 str(GE)
 GE$chromosome <- as.factor(GE$chromosome)
