@@ -160,10 +160,10 @@ head(HEADS_merged_GE_loc)
 write.table(HEADS_merged_GE_loc,"~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/GE_HEADS/NonNormalised_merged_GE_25scaffolds_HEADS.txt")
 ```
 Repeat for the other 3 ExpressionSummary.txt files and obtain the 4 following files:
-**- NonNormalised_merged_GE_25scaffolds_HEADS.txt**
-**- NonNormalised_merged_GE_25scaffolds_GONADS.txt**
-**- NonNormalised_merged_GE_25scaffolds_CARCASSES.txt**
-**- NonNormalised_merged_GE_25scaffolds_ALLTISSUES.txt**
+* **NonNormalised_merged_GE_25scaffolds_HEADS.txt**
+* **NonNormalised_merged_GE_25scaffolds_GONADS.txt**
+* **NonNormalised_merged_GE_25scaffolds_CARCASSES.txt**
+* **NonNormalised_merged_GE_25scaffolds_ALLTISSUES.txt**
 
 
 ## 3.1. GE normalisation for Spearman correlation and tissue-specific expression analyses
