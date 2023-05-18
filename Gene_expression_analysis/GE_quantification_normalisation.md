@@ -275,6 +275,9 @@ expf_2 <- data.frame(expf[, c(1:3)], expf_2)
 head(expf)
 head(expf_2)
 
+# write the file for POF expression analysis
+write.table(expf_2, file = "Normalised_HEADS_GE_25scaf_no_TPM_filtering.txt", quote=F)
+
 # Make GE averages per sex
 expf_2$MALE_AVG <- rowMeans(expf_2[ ,c("MALE1", "MALE2", "MALE3")])
 expf_2$FEM_AVG <- rowMeans(expf_2[ ,c("FEM1", "FEM2", "FEM3")])
