@@ -171,20 +171,20 @@ levels(chrom_location$chromosome)
 summary(chrom_location$chromosome)
 
 # Load non-normalised Expression_Summary file
-GE_HEADS_df <- read.table("~/PATH/ExpressionSummary_HEADS_samples.txt", head=T, sep="")
-head(GE_HEADS_df)
-str(GE_HEADS_df)
-colnames(GE_HEADS_df)<-c("gene", "MALE1", "MALE2", "MALE3", "FEM1", "FEM2", "FEM3") 
-head(GE_HEADS_df)
+GE <- read.table("~/PATH/ExpressionSummary_HEADS_samples.txt", head=T, sep="")
+head(GE)
+str(GE)
+colnames(GE)<-c("gene", "MALE1", "MALE2", "MALE3", "FEM1", "FEM2", "FEM3") 
+head(GE)
 
 # merge each organ file with the chromosomal location of each transcript 
-HEADS_merged_GE_loc <-merge(chrom_location,GE_HEADS_df, by.x="Transcript", by.y="gene") 
+merged_GE_loc <-merge(chrom_location,GE, by.x="Transcript", by.y="gene") 
 
 # Check the new datafram
-head(HEADS_merged_GE_loc)
+head(merged_GE_loc)
 
 # write file
-write.table(HEADS_merged_GE_loc,"~/PATH/NonNormalised_merged_GE_25scaffolds_HEADS.txt")
+write.table(merged_GE_loc,"~/PATH/NonNormalised_merged_GE_25scaffolds_HEADS.txt")
 ```
 Repeat for the other 3 ExpressionSummary.txt files and obtain the 4 following files:
 * **NonNormalised_merged_GE_25scaffolds_HEADS.txt**
