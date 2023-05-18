@@ -7,7 +7,7 @@ Although the Pixy program developpers have written excellent guidelines on how t
 
 # 1. Make .bam files for each HEAD sample from the fasta read files
 
-Content of the script:
+In a slurm script:
 ```ruby
 # load modules
 module load bwa
@@ -90,7 +90,7 @@ Content of the file (remember that this is TAB and not SPACE separated)
 
 
 ## Run pixy
-Content of the script:
+In a slurm script:
 ```ruby
 #modules 
 module load anaconda2/4.7.12.1
