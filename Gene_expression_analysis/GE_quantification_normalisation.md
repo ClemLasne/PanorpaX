@@ -144,7 +144,7 @@ levels(chrom_location$chromosome)
 summary(chrom_location$chromosome)
 
 # Load non-normalised Expression_Summary file
-GE_HEADS_df <- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/GE_HEADS/ExpressionSummary_HEADS_samples.txt", head=T, sep="")
+GE_HEADS_df <- read.table("~/PATH/ExpressionSummary_HEADS_samples.txt", head=T, sep="")
 head(GE_HEADS_df)
 str(GE_HEADS_df)
 colnames(GE_HEADS_df)<-c("gene", "MALE1", "MALE2", "MALE3", "FEM1", "FEM2", "FEM3") 
@@ -157,7 +157,7 @@ HEADS_merged_GE_loc <-merge(chrom_location,GE_HEADS_df, by.x="Transcript", by.y=
 head(HEADS_merged_GE_loc)
 
 # write file
-write.table(HEADS_merged_GE_loc,"~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/GE_HEADS/NonNormalised_merged_GE_25scaffolds_HEADS.txt")
+write.table(HEADS_merged_GE_loc,"~/PATH/NonNormalised_merged_GE_25scaffolds_HEADS.txt")
 ```
 Repeat for the other 3 ExpressionSummary.txt files and obtain the 4 following files:
 * **NonNormalised_merged_GE_25scaffolds_HEADS.txt**
