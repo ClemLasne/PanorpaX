@@ -274,10 +274,13 @@ expf_2 <- data.frame(expf[, c(1:3)], expf_2)
 # check that the gene names match between expf and expf_2
 head(expf)
 head(expf_2)
-
-# write the file for POF expression analysis
+```
+**stay in R, and generate the expression file for POF expression analysis** 
+```ruby
 write.table(expf_2, file = "Normalised_HEADS_GE_25scaf_no_TPM_filtering.txt", quote=F)
-
+```
+**stay in R and proceed to the TPm filtering step for the dosage compensation analysis**
+```ruby
 # Make GE averages per sex
 expf_2$MALE_AVG <- rowMeans(expf_2[ ,c("MALE1", "MALE2", "MALE3")])
 expf_2$FEM_AVG <- rowMeans(expf_2[ ,c("FEM1", "FEM2", "FEM3")])
@@ -323,11 +326,17 @@ head(expf_4_0.5)
 write.table(expf_4_0.5, file = "Normalised_HEADS_GE_merged_25_scaffolds_filter_0.5.txt", quote=F)
 ```
 
-Repeat for the other 2 tissues. In the you obtain the 3 following files:
+Repeat for the other 2 tissues. In the you obtain the 6 following files:
+**for POF**
+* **Normalised_HEADS_GE_25scaf_no_TPM_filtering.txt**
+* **Normalised_CARCASSES_GE_25scaf_no_TPM_filtering.txt**
+* **Normalised_GONADS_GE_25scaf_no_TPM_filtering.txt**
 
+Path to these files in Seafile: "panorpaX/Dataset S4: Gene expression and dosage compensation/POF_expression_datasets"
+
+**for dosage compensation analysis**
 * **Normalised_HEADS_GE_merged_25_scaffolds_filter_0.5.txt**
 * **Normalised_GONADS_GE_merged_25_scaffolds_filter_0.5.txt**
 * **Normalised_CARCASSES_GE_merged_25_scaffolds_filter_0.5.txt**
 
-
-For each of these 3 files: columns 3, 10 and 11 will be used for the dosage compensation analysis; and columns 4 to 9 will be used for POF gene expression analysis.
+Path to these files in Seafile: "panorpaX/Dataset S4: Gene expression and dosage compensation/Dosage_compensation_datasets"
