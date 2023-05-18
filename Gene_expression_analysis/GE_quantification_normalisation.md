@@ -108,20 +108,20 @@ so <- sleuth_fit(so, ~condition, 'full')
 so <- sleuth_fit(so, ~1, 'reduced')
 so <- sleuth_lrt(so, 'reduced', 'full')
 sleuth_table <- sleuth_results(so, 'reduced:full', 'lrt', show_all = FALSE)
-write.table(sleuth_table, file = "DEgenes_HEAD_samples.txt") # write a differential expression file if needed
+write.table(sleuth_table, file = "DEgenes_HEADS_samples.txt") # write a differential expression file if needed
 kallisto_table<-sleuth_to_matrix(so, "obs_norm", "tpm")
 
 head(kallisto_table)
 SummaryTPM <- cbind(rownames(kallisto_table), data.frame(kallisto_table, row.names=NULL))
 colnames(SummaryTPM)[1] <- "gene"
-write.table(SummaryTPM, file = "ExpressionSummary_HEAD_samples.txt") # file to use subsequently
+write.table(SummaryTPM, file = "ExpressionSummary_HEADS_samples.txt") # file to use subsequently
 final<-merge(sleuth_table, SummaryTPM, by.x="target_id", by.y="gene")
-write.table(final, file = "DGE_HEAD_samples.txt")
+write.table(final, file = "DGE_HEADS_samples.txt")
 head(sleuth_table)
 ```
 
 Repeat for each dataset and obtain 4 Expression summary files:
-* **ExpressionSummary_HEAD_samples.txt**
+* **ExpressionSummary_HEADS_samples.txt**
 * **ExpressionSummary_GONADS_samples.txt**
 * **ExpressionSummary_CARCASSES_samples.txt**
 * **ExpressionSummary_ALLTISSUES_samples.txt**
@@ -144,7 +144,7 @@ levels(chrom_location$chromosome)
 summary(chrom_location$chromosome)
 
 # Load non-normalised Expression_Summary file
-GE_HEADS_df <- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/GE_HEADS/ExpressionSummary_HEAD_samples.txt", head=T, sep="")
+GE_HEADS_df <- read.table("~/Documents/MECOPTERA/post_hack_check_GE/25scaffolds_032023/GE_HEADS/ExpressionSummary_HEADS_samples.txt", head=T, sep="")
 head(GE_HEADS_df)
 str(GE_HEADS_df)
 colnames(GE_HEADS_df)<-c("gene", "MALE1", "MALE2", "MALE3", "FEM1", "FEM2", "FEM3") 
