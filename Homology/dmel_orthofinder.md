@@ -1,10 +1,6 @@
 For SI:
 # Orthofinder:
-Working directory:
-```
-cd /nfs/scistore18/vicosgrp/llayanaf/Scorpionflies/screwworm/dmel_ortho 
-```
-Donwload files (protein sequences)
+Download protein sequences of D. melanogaster
 ```
 wget https://ftp.ensembl.org/pub/release-108/fasta/drosophila_melanogaster/pep/Drosophila_melanogaster.BDGP6.32.pep.all.fa.gz
 gzip -d Drosophila_melanogaster.BDGP6.32.pep.all.fa.gz
@@ -15,9 +11,16 @@ cat Drosophila_melanogaster.BDGP6.32.pep.all.fa | perl -pi -e 's/>.*gene:/>/gi'|
 ```
 Get longest isoform
 ```
-perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl Drosophila_melanogaster_sortedprots.fa
+perl ~/GetLongestCDS_v2.pl Drosophila_melanogaster_sortedprots.fa
 ```
-Remove last line (?)
+Remove last line
 ```
 perl -pi -e 's/>$//gi' Drosophila_melanogaster_sortedprots.fa.longestCDS
 ```
+## Run Orthofinder
+files_orthofinder_dmel is a directory that must contain the protein sequences for the three species
+- We used the protein sequences predicted from the Panorpa transcripts (Panorpa_transcriptome_500bp.faa)
+- Also, the protein sequences for the outgroup species Aedes aegypti (Aedes_aegypti_sortedprots.fa)
+```
+module load orthofinder
+orthofinder -f files_orthofinder_dmel
