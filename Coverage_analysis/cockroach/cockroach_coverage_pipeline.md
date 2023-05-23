@@ -9,15 +9,9 @@ Reads from paper (https://doi.org/10.1186/s12915-019-0721-x)
 - Male reads: SRR1566154, SRR1566155, SRR1566159
 - Female read: SRR1566152
 
-Coverage analysis result 1: Ok, but better if we use more reads!
-
 Other reads found on NCBI:
 - Male reads: SRR9160163, SRR9160164
 - Female reads: SRR9160166, SRR9160167, SRR9160168, SRR9160165
-
-Coverage analysis result 2: Didn't get what we expected. Lead us ot thnk the mislabel of osme reads. Therefore we look at the coverage of each individual (mystrious individuals). These results suggests that male63 and male 64 are correctly labeled.
-
-In summary, the reads we will use: SRR1566154, SRR1566155, SRR1566159, SRR9160163, SRR9160164, SRR1566152
 
 ```
 module load SRA-Toolkit/2.8.1-3
