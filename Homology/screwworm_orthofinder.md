@@ -35,10 +35,6 @@ cat Aedes_aegypti_lvpagwg.AaegL5.pep.all.fa | perl -pi -e 's/>.*gene:/>/gi'| per
 cat prot3.fasta | perl -pi -e 's/\n/ /gi' | perl -pi -e 's/>/\n>/gi' | sort | perl -pi -e 's/ /\n/gi' | perl -pi -e 's/^\n//gi' > screwworm_sortedprots3.fa
 
 ```
-filter for longest isoform
-```
-perl ~/GetLongestCDS_v2.pl Aedes_aegypti_sortedprots.fa
-```
 delete the last line of each longestCDS file created before running Orthofinder
 ```
 perl -pi -e 's/>$//gi' Aedes_aegypti_sortedprots.fa.longestCDS
