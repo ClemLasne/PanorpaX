@@ -36,7 +36,7 @@ cat prot3.fasta | perl -pi -e 's/\n/ /gi' | perl -pi -e 's/>/\n>/gi' | sort | pe
 ```
 Extract largest isoform:
 ```
-## This will output the file Aedes_aegypti_sortedprots.fa.longestCDS and screwworm_sortedprots3.fa.longest
+## This will output the file Aedes_aegypti_sortedprots.fa.longestCDS and screwworm_sortedprots3.fa.longestCDS
 perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl Aedes_aegypti_sortedprots.fa
 perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl screwworm_sortedprots3.fa
 ```
