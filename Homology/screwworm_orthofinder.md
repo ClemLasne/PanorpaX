@@ -21,7 +21,7 @@ gffread -y prot3.fasta -g 1853921 1853920 -S
 perl ~/GetLongestAA_v1_July2020.pl Panorpa_transcriptome_500bp.cds
 ```
 
-# Orthofinder
+# Prepare files for Orthofinder
 
 Get protein sequences for outgroup species (mosquito):
 ```
@@ -35,12 +35,17 @@ cat Aedes_aegypti_lvpagwg.AaegL5.pep.all.fa | perl -pi -e 's/>.*gene:/>/gi'| per
 cat prot3.fasta | perl -pi -e 's/\n/ /gi' | perl -pi -e 's/>/\n>/gi' | sort | perl -pi -e 's/ /\n/gi' | perl -pi -e 's/^\n//gi' > screwworm_sortedprots3.fa
 
 ```
+Remove a blank line in the file:
+```
+perl -pi -e 's/>$//gi' Aedes_aegypti_sortedprots.fa
+```
 Extract largest isoform:
 ```
 ## This will output the file Aedes_aegypti_sortedprots.fa.longestCDS and screwworm_sortedprots3.fa.longestCDS
 perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl Aedes_aegypti_sortedprots.fa
 perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl screwworm_sortedprots3.fa
 ```
+
 Change files names:
 ```
 mv Aedes_aegypti_sortedprots.fa.longestCDS Aedes_aegypti_sortedprots.fa
