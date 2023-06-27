@@ -27,7 +27,6 @@ Get protein sequences for outgroup species (mosquito):
 wget http://ftp.ensemblgenomes.org/pub/metazoa/release-55/fasta/aedes_aegypti_lvpagwg/pep/Aedes_aegypti_lvpagwg.AaegL5.pep.all.fa.gz
 gzip -d Aedes_aegypti_lvpagwg.AaegL5.pep.all.fa.gz
 ```
-
 Sort protein files
 ```
 cat Aedes_aegypti_lvpagwg.AaegL5.pep.all.fa | perl -pi -e 's/>.*gene:/>/gi'| perl -pi -e 's/ .*//gi'| perl -pi -e 's/\n/ /gi'| perl -pi -e 's/>/\n/gi'| sort | perl -pi -e 's/\n/\n>/gi'| perl -pi -e 's/ /\n/gi'| perl -pi -e 's/^\n//gi' > Aedes_aegypti_sortedprots.fa
@@ -35,19 +34,16 @@ cat Aedes_aegypti_lvpagwg.AaegL5.pep.all.fa | perl -pi -e 's/>.*gene:/>/gi'| per
 cat prot3.fasta | perl -pi -e 's/\n/ /gi' | perl -pi -e 's/>/\n>/gi' | sort | perl -pi -e 's/ /\n/gi' | perl -pi -e 's/^\n//gi' > screwworm_sortedprots3.fa
 
 ```
-delete the last line of each longestCDS file created before running Orthofinder
+Extract largest isoform:
 ```
-perl -pi -e 's/>$//gi' Aedes_aegypti_sortedprots.fa.longestCDS
-perl -pi -e 's/>$//gi' prot3.fasta
+## This will output the file Aedes_aegypti_sortedprots.fa.longestCDS and screwworm_sortedprots3.fa.longest
+perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl Aedes_aegypti_sortedprots.fa
+perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl screwworm_sortedprots3.fa
 ```
-change files names
+Change files names:
 ```
 mv Aedes_aegypti_sortedprots.fa.longestCDS Aedes_aegypti_sortedprots.fa
-mv prots3.fasta screwworm_sortedprots3.fa
-```
-
-rename Panorpa transcripts and rename
-```
+mv screwworm_sortedprots3.fa.longestCDS screwworm_sortedprots3.fa
 mv Panorpa_transcriptome_500bp.cds.aa Panorpa_transcriptome_500bp.faa
 ```
 ## run Orthofinder
