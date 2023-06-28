@@ -5,19 +5,19 @@ wget https://datadryad.org/stash/downloads/file_stream/1853921
 ```
 Get genes location:
 ```
-awk '$3=="transcript"{print $1,$9}' 1853920 > transcript_names
-## file would be processed in textEdit, name: transcript_names_final.txt
+'$3=="gene"{print $1,$9}' 1853920 > gene_names
+## file would be processed in textEdit, name: gene_names_true.txt
 ```
 ## Get protein sequences from gff file
 ```
 module load anaconda3/2022.05
 conda activate gffread
 ## by adding -S we replace '.' by '*' for the stop codons and then orthofinder can be executed
-gffread -y screwworm_prot.fasta -g 1853921 1853920 -S
+gffread -y protseq.fasta -g 1853921 1853920 -S
 ```
 ## Remove everything after '.' in sequences names
 ```
-cut -d"." -f1 screwworm_prot.fasta > screwworm_prot2.fasta
+cut -d"." -f1 protseq.fasta > screwworm_prots.fasta
 ```
 
 ## Get predicted aminoacids from Panorpa transcripts
@@ -37,17 +37,17 @@ Sort protein files
 ```
 cat Aedes_aegypti_lvpagwg.AaegL5.pep.all.fa | perl -pi -e 's/>.*gene:/>/gi'| perl -pi -e 's/ .*//gi'| perl -pi -e 's/\n/ /gi'| perl -pi -e 's/>/\n/gi'| sort | perl -pi -e 's/\n/\n>/gi'| perl -pi -e 's/ /\n/gi'| perl -pi -e 's/^\n//gi' > Aedes_aegypti_sortedprots.fa
 
-cat screwworm_prot2.fasta | perl -pi -e 's/\n/ /gi' | perl -pi -e 's/>/\n>/gi' | sort | perl -pi -e 's/ /\n/gi' | perl -pi -e 's/^\n//gi' > screwworm_sortedprots3.fa
+cat screwworm_prots.fasta | perl -pi -e 's/\n/ /gi' | perl -pi -e 's/>/\n>/gi' | sort | perl -pi -e 's/ /\n/gi' | perl -pi -e 's/^\n//gi' > screwworm_sortedprots.fa
 
 ```
 Remove a blank line in the file:
 ```
 perl -pi -e 's/>$//gi' Aedes_aegypti_sortedprots.fa
 ```
-Extract largest isoform:
+Extract largest isoform. This will output the file Aedes_aegypti_sortedprots.fa.longestCDS and screwworm_sortedprots.fa.longest:
 ```
-## This will output the file Aedes_aegypti_sortedprots.fa.longestCDS
 perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl Aedes_aegypti_sortedprots.fa
+perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl screwworm_sortedprots.fa
 ```
 
 Change files names:
@@ -66,9 +66,5 @@ orthofinder -f files_for_orthofinder
 ```
 #extract genes:
 cat Panorpa_transcriptome_500bp__v__screwworm_sortedprots3.tsv | awk '($2 ~/TRINITY/ && $3 ~/g/ && $4 !~/g/)' | awk '{print $2, $3}' | sort > Panorpa_screw_1to1.txt
-```
-Line end trimming
-```
-perl ~/linendings.pl --unix Panorpa_screw_1to1.txt
 ```
 
