@@ -46,7 +46,7 @@ perl -pi -e 's/>$//gi' Aedes_aegypti_sortedprots.fa
 ```
 Extract largest isoform:
 ```
-## This will output the file Aedes_aegypti_sortedprots.fa.longestCDS and screwworm_sortedprots3.fa.longestCDS
+## This will output the file Aedes_aegypti_sortedprots.fa.longestCDS
 perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl Aedes_aegypti_sortedprots.fa
 ```
 
