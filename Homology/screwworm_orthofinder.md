@@ -55,6 +55,7 @@ Change files names:
 ```
 mv Aedes_aegypti_sortedprots.fa.longestCDS Aedes_aegypti_sortedprots.fa
 mv Panorpa_transcriptome_500bp.cds.aa Panorpa_transcriptome_500bp.faa
+mv screwworm_sortedprots.fa.longestCDS Chominivorax_prots.fa
 ```
 ## Execute Orthofinder
 ```
