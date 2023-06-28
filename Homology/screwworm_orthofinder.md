@@ -38,4 +38,7 @@ orthofinder -f files_for_orthofinder
 #extract genes:
 cat Panorpa_prots__v__Chominivorax_prot.tsv | awk '($2 ~/TRINITY/ && $3 ~/g/ && $4 !~/g/)' | awk '{print $2, $3}' | sort > Panorpa_chomini_1to1.txt
 ```
-
+To obtain orthologs with N. appendiculata, we include the protein sequences and then extract the corresponding file from Orthofinder:
+```
+cat Panorpa_prots__v__Chominivorax_prot.tsv | awk '($2 ~/TRINITY/ && $3 ~/g/ && $4 !~/g/)' | awk '{print $2, $3}' | sort > Panorpa_chomini_1to1.txt
+```
