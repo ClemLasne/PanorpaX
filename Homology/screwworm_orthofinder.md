@@ -5,7 +5,7 @@ wget https://datadryad.org/stash/downloads/file_stream/1853921
 ```
 Get genes location:
 ```
-'$3=="gene"{print $1,$9}' 1853920 > gene_names
+awk '$3=="gene"{print $1,$9}' 1853920 > gene_names
 cut -d";" -f1 gene_names > gene_names_mod
 ## file would be processed in textEdit, name: gene_names_true.txt
 ```
