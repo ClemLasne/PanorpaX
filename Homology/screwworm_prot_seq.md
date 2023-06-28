@@ -25,7 +25,7 @@ Sort file so that GetLongestCDS_v2.pl can be executed:
 ```
 cat screwworm_prots.fasta | perl -pi -e 's/\n/ /gi' | perl -pi -e 's/>/\n>/gi' | sort | perl -pi -e 's/ /\n/gi' | perl -pi -e 's/^\n//gi' > screwworm_sortedprots.fa
 ```
-Extract largest isoform. This will output the file Aedes_aegypti_sortedprots.fa.longestCDS and screwworm_sortedprots.fa.longest:
+Extract largest isoform. This will output the file screwworm_sortedprots.fa.longest:
 ```
 perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl screwworm_sortedprots.fa
 ```
