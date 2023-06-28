@@ -14,7 +14,7 @@ Remove a blank line in the file so that GetLongestCDS_v2.pl can be executed:
 ```
 perl -pi -e 's/>$//gi' Aedes_aegypti_sortedprots.fa
 ```
-Extract largest isoform. This will output the file Aedes_aegypti_sortedprots.fa.longestCDS and screwworm_sortedprots.fa.longest:
+Extract largest isoform. This will output the file Aedes_aegypti_sortedprots.fa.longestCDS:
 ```
 perl /nfs/scistore18/vicosgrp/bvicoso/scripts/GetLongestCDS_v2.pl Aedes_aegypti_sortedprots.fa
 ```
