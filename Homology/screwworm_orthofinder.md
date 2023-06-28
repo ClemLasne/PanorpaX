@@ -22,6 +22,10 @@ Change file name:
 ```
 mv Aedes_aegypti_sortedprots.fa.longestCDS Aedes_aegypti_prots.fa
 ```
+to be deleted
+```
+Panorpa_prots.fa
+```
 ## Execute Orthofinder
 ```
 #files_for_orthofinder: directory must contain the protein sequences for all three species.
@@ -32,6 +36,6 @@ orthofinder -f files_for_orthofinder
 ## Extract 1:1 orthologous genes
 ```
 #extract genes:
-cat Panorpa_transcriptome_500bp__v__screwworm_sortedprots3.tsv | awk '($2 ~/TRINITY/ && $3 ~/g/ && $4 !~/g/)' | awk '{print $2, $3}' | sort > Panorpa_screw_1to1.txt
+cat Panorpa_prots__v__Chominivorax_prot.tsv | awk '($2 ~/TRINITY/ && $3 ~/g/ && $4 !~/g/)' | awk '{print $2, $3}' | sort > Panorpa_chomini_1to1.txt
 ```
 
