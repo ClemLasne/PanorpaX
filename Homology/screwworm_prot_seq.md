@@ -8,7 +8,7 @@ Get genes location:
 ```
 awk '$3=="gene"{print $1,$9}' 1853920 > gene_names
 cut -d";" -f1 gene_names > gene_names_mod
-## file would be processed in textEdit, name: gene_names_true.txt
+## file would be processed in textEdit, name: gene_names_true
 ```
 Get protein sequences from gff file
 ```
