@@ -28,17 +28,14 @@ Panorpa_prots.fa
 ```
 ## Execute Orthofinder
 ```
-#files_for_orthofinder: directory must contain the protein sequences for all three species.
+#files_for_orthofinder: directory must contain the protein sequences for all three species (Panorpa_prots.fa, Chominivorax_prots and Aedes_aegypti_prots.fa)
 module load orthofinder
 orthofinder -f files_for_orthofinder
 
 ```
-## Extract 1:1 orthologous genes
+## Extract 1:1 orthologous genes (P. cognata and C. hominivorax)
 ```
-#extract genes:
-cat Panorpa_prots__v__Chominivorax_prot.tsv | awk '($2 ~/TRINITY/ && $3 ~/g/ && $4 !~/g/)' | awk '{print $2, $3}' | sort > Panorpa_chomini_1to1.txt
+cat Panorpa_prots__v__Chominivorax_prots.tsv | awk '($2 ~/TRINITY/ && $3 ~/g/ && $4 !~/g/)' | awk '{print $2, $3}' | sort > Panorpa_Chominivorax_1to1.txt
 ```
-To obtain orthologs with N. appendiculata, we include the protein sequences and then extract the corresponding file from Orthofinder:
-```
-cat Panorpa_prots__v__Chominivorax_prot.tsv | awk '($2 ~/TRINITY/ && $3 ~/g/ && $4 !~/g/)' | awk '{print $2, $3}' | sort > Panorpa_chomini_1to1.txt
-```
+
+
