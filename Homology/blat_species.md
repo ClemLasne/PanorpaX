@@ -8,7 +8,9 @@ wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/947/310/385/GCA_947310385.1_id
 gzip -d GCA_947310385.1_idNepAppe1.1_genomic.fna.gz
 #B. germanica
 wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/762/945/GCA_000762945.2_Bger_2.0/GCA_000762945.2_Bger_2.0_genomic.fna.gz
-gzip -d GCA_000762945.2_Bger_2.0_genomic.fna.gz  
+gzip -d GCA_000762945.2_Bger_2.0_genomic.fna.gz
+#C. hominivorax
+wget https://datadryad.org/stash/downloads/file_stream/1853921
 ```
 Map Panorpa transcripts to the species genome
 ```
@@ -16,6 +18,7 @@ module load blat
 srun blat -t=dnax -q=dnax -minScore=50 GCA_026315105.1_CAU_Lmig_1.0_genomic.fna ~/Panorpa_transcriptome_500bp.cds CDS_vs_genome.blat
 srun blat -t=dnax -q=dnax -minScore=50 GCA_947310385.1_idNepAppe1.1_genomic.fna ~/Panorpa_transcriptome_500bp.cds CDS_vs_genome.blat
 srun blat -t=dnax -q=dnax -minScore=50 GCA_000762945.2_Bger_2.0_genomic.fna ~/Panorpa_transcriptome_500bp.cds CDS_vs_genome.blat
+srun blat -t=dnax -q=dnax -minScore=50 1853921 ~/Panorpa_transcriptome_500bp.cds CDS_vs_genome.blat
 ```
 Best hit and remove redundancy for each blat results:
 ```
