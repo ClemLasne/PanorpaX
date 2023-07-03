@@ -147,3 +147,22 @@ conda activate matlock
 ```
 /nfs/scistore18/vicosgrp/melkrewi/panorpa_assembly_v2/44.YaHS_1.2/yahs-1.2a.1.patch/yahs purged_N80.fa 184468_S1_purged_N80.fa.bwt2pairs_interaction_filtered_matlock_0_edit.bam -q 0 --no-contig-ec -r 200000,300000,400000,450000,500000,600000,700000,800000,900000,1000000,1100000,1200000,1500000,2000000,2500000,3000000
 ```
+## Annotation
+```
+module load samtools
+module load hisat2
+module load stringtie
+
+hisat2-build yahs.out_scaffolds_final_hicpro_multimapping_matlock_0_13_03_2023.fa genome_index
+
+for i in *_R1_001_PE_paired.fastq.gz
+do
+   prefix=$(basename $i _R1_001_PE_paired.fastq.gz)
+   hisat2 --phred33 -p 50 --novel-splicesite-outfile hisat2/${prefix}_splicesite.txt -S hisat2/${prefix}_accepted_hits.sam -x genome_index -1 ${prefix}_R1_001_PE_paired.fastq.gz -2 ${prefix}_R2_001_PE_paired.fastq.gz --rna-strandness RF
+   samtools view -bS -o hisat2/${prefix}_accepted_hits.bam hisat2/${prefix}_accepted_hits.sam
+   samtools sort -o hisat2/${prefix}_accepted_hits.sorted.bam hisat2/${prefix}_accepted_hits.bam
+   stringtie hisat2/${prefix}_accepted_hits.sorted.bam -o ${prefix}_transcripts.gtf
+done
+
+stringtie --merge 184786_S1_L004_transcripts.gtf 184787_S2_L004_transcripts.gtf 184788_S3_L004_transcripts.gtf 184789_S4_L004_transcripts.gtf 184790_S5_L004_transcripts.gtf 184791_S6_L004_transcripts.gtf 184792_S7_L004_transcripts.gtf 184793_S8_L004_transcripts.gtf 184794_S9_L004_transcripts.gtf 184795_S10_L004_transcripts.gtf 184796_S11_L004_transcripts.gtf 184797_S12_L004_transcripts.gtf 184798_S13_L004_transcripts.gtf 184799_S14_L004_transcripts.gtf 184800_S15_L004_transcripts.gtf 184801_S16_L004_transcripts.gtf 184802_S17_L004_transcripts.gtf 184803_S18_L004_transcripts.gtf -o all_panorpa_cognata.gtf -F 0 -T 1
+```
