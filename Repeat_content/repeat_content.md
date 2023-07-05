@@ -26,7 +26,7 @@ import os
 import pysam
 import warnings
 warnings.filterwarnings("ignore")
-panorpa_repeats=pd.read_csv("/nfs/scistore18/vicosgrp/melkrewi/panorpa_assembly_v2/57.repeat_masker/classfied_all/Repeats_all_classified.out",sep="\s+",header=None,names=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
+panorpa_repeats=pd.read_csv("~/Repeats_all_classified.out",sep="\s+",header=None,names=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16])
 repeat_content_all=[]
 binwidth=10000
 n=0
@@ -86,3 +86,29 @@ plt.hlines(np.median(flat_list),0.5,25.5,color="gray",linestyle='dashed',linewid
 plt.xticks(np.arange(1,26,1), ['1','22','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','23','24','25'])
 plt.savefig('repeats_all_chromosomes.png',bbox_inches='tight')
 ```
+output results tables:
+```
+X_linked=pd.DataFrame(repeat_content_all[0]+repeat_content_all[1])
+X_linked['location']='X_linked'
+Autosomal=pd.DataFrame(repeat_content_all[2]+repeat_content_all[3]+repeat_content_all[4]+repeat_content_all[5]+repeat_content_all[6]+repeat_content_all[7]+repeat_content_all[8]+repeat_content_all[9]+repeat_content_all[10]+repeat_content_all[11]+repeat_content_all[12]+repeat_content_all[13]+repeat_content_all[14]+repeat_content_all[15]+repeat_content_all[16]+repeat_content_all[17]+repeat_content_all[18]+repeat_content_all[19]+repeat_content_all[20]+repeat_content_all[21]+repeat_content_all[22]+repeat_content_all[23]+repeat_content_all[24])
+Autosomal['location']='autosomal'
+mixed=pd.concat([X_linked,Autosomal],ignore_index=True)
+mixed = mixed.rename({
+          0:'windows'
+        }, axis='columns')
+mixed=mixed[['location','windows']]
+mixed.to_csv('repeats_x_vs_autosomes.txt',index=False,sep='\t')
+names=['scaffold_1','scaffold_22','scaffold_2','scaffold_3','scaffold_4','scaffold_5','scaffold_6','scaffold_7','scaffold_8','scaffold_9','scaffold_10','scaffold_11','scaffold_12','scaffold_13','scaffold_14','scaffold_15','scaffold_16','scaffold_17','scaffold_18','scaffold_19','scaffold_20','scaffold_21','scaffold_23','scaffold_24','scaffold_25']
+chromosomes=pd.DataFrame(repeat_content_all[0])
+chromosomes['location']=names[0]
+for i in np.arange(1,25,1):
+    chr_i=pd.DataFrame(repeat_content_all[i])
+    chr_i['location']=names[i]
+    chromosomes=pd.concat([chromosomes,chr_i],ignore_index=True)
+chromosomes = chromosomes.rename({
+          0:'windows'
+        }, axis='columns')
+chromosomes=chromosomes[['location','windows']]
+chromosomes.to_csv('repeats_all_chromosomes.txt',index=False,sep='\t') 
+```
+
