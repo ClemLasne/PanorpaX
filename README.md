@@ -11,7 +11,7 @@ Below is a rough guide to the content of each file/folder:
 3. [Transcriptome Assembly](https://github.com/ClemLasne/PanorpaX/blob/main/Transcriptome_assembly/Assembly_pipeline.md)
 4. [Homology](https://github.com/ClemLasne/PanorpaX/tree/main/Homology)
 5. [Synteny](https://github.com/ClemLasne/PanorpaX/tree/main/Synteny/synteny_pipeline.md)
-6. [Gene_expression_analysis](https://github.com/ClemLasne/PanorpaX/tree/main/Gene_expression_analysis)
+6. [Gene expression analysis](https://github.com/ClemLasne/PanorpaX/tree/main/Gene_expression_analysis)
 7. [GC content](https://github.com/ClemLasne/PanorpaX/blob/main/GC_content/GC_content.md)
 8. [Repeat content](https://github.com/ClemLasne/PanorpaX/blob/main/Repeat_content/repeat_content.md)
 9. [Perl scripts](https://github.com/ClemLasne/PanorpaX/tree/main/Perl_scripts)
