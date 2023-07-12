@@ -14,4 +14,5 @@ Below is a rough guide to the content of each file/folder:
 6. [Gene expression analysis](https://github.com/ClemLasne/PanorpaX/tree/main/Gene_expression_analysis)
 7. [GC content](https://github.com/ClemLasne/PanorpaX/blob/main/GC_content/GC_content.md)
 8. [Repeat content](https://github.com/ClemLasne/PanorpaX/blob/main/Repeat_content/repeat_content.md)
-9. [Perl scripts](https://github.com/ClemLasne/PanorpaX/tree/main/Perl_scripts)
+9. [Nucleotide diversity](https://github.com/ClemLasne/PanorpaX/blob/main/nucleotide_diversity/Pixy_pipeline.md)
+10. [Perl scripts](https://github.com/ClemLasne/PanorpaX/tree/main/Perl_scripts)
