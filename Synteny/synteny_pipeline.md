@@ -3,10 +3,10 @@
 ### Get Reads from SRA 
 `module load SRA-Toolkit/2.11.2`
 
-# N. appendiculata
+**N. appendiculata**
 `fasterq-dump --threads 4 --split-files ERR10378025`
 
-# L. migratoria
+**L. migratoria**
 `fasterq-dump --threads 4 --split-files SRR22110765`
 
 
