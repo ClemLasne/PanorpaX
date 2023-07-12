@@ -70,8 +70,6 @@ Transdecoder5.5/TransDecoder-TransDecoder-v5.5.0/TransDecoder.Predict -t transcr
 
 **output: transcripts.TDCL.fasta.transdecoder.pep.long**
 
-
-
-### Input for Genespace ###
-#peptide sequence: transcripts.TDCL.fasta.transdecoder.pep.long
-#gff: transcripts.gtf (from stringtie)
+## Input for Genespace 
+**peptide sequence: transcripts.TDCL.fasta.transdecoder.pep.long**
+**gff: transcripts.gtf (from stringtie)**
